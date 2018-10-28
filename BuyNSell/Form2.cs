@@ -92,17 +92,17 @@ namespace BuyNSell
             cmd.Parameters.AddWithValue("@Name",textBox1.Text);
             cmd.Parameters.AddWithValue("@Email",textBox2.Text);
             cmd.Parameters.AddWithValue("@Password", textBox3.Text);
-            cmd.Parameters.AddWithValue("@Phone", textBox1.Text);
-            cmd.Parameters.AddWithValue("@Income", textBox1.Text);
-            cmd.Parameters.AddWithValue("@Address", textBox1.Text);
+            cmd.Parameters.AddWithValue("@Phone", Convert.ToInt32(textBox4.Text));
+            cmd.Parameters.AddWithValue("@Income", Convert.ToInt32(textBox5.Text));
+            cmd.Parameters.AddWithValue("@Address", textBox6.Text);
             con.Open();
             try
             {
                 cmd.ExecuteNonQuery();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("SQL Error\n"+ex);
+                MessageBox.Show("SQL Error\n" + ex);
                 added = false;
             }
             con.Close();

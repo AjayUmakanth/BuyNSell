@@ -13,9 +13,14 @@ namespace BuyNSell
     public partial class Form3 : Form
     {
         public static String uEmail;
-        public Form3()
+        public Form3(String email)
         {
+            uEmail = email;
             InitializeComponent();
+            contentPanel.Controls.Add(MyProfile_UserControl.Instance);
+            MyProfile_UserControl.Instance.Dock = DockStyle.Fill;
+            MyProfile_UserControl.Instance.showDetails();
+            MyProfile_UserControl.Instance.BringToFront();
         }
 
         private void Form3_Load(object sender, EventArgs e)

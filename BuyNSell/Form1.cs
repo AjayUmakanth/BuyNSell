@@ -67,8 +67,7 @@ namespace BuyNSell
             {
                 if (pass.Equals(typedPass))
                 {
-                    Form3 obj = new Form3();
-                    Form3.uEmail = email;
+                    Form3 obj = new Form3(email);
                     this.Hide();
                     obj.Show();
                 }
