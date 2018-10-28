@@ -370,6 +370,7 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
           <Key>
             <PropertyRef Name="PID" />
             <PropertyRef Name="UID" />
+            <PropertyRef Name="Locality_Name" />
           </Key>
           <Property Name="PID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Locality_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
