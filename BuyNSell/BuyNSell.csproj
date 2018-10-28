@@ -79,6 +79,12 @@
     <Compile Include="Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyBids_UserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyBids_UserControl.Designer.cs">
+      <DependentUpon>MyBids_UserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MyProfile_UserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -87,6 +93,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MyProperties_UserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyProperties_UserControl.Designer.cs">
+      <DependentUpon>MyProperties_UserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rent_UserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rent_UserControl.Designer.cs">
+      <DependentUpon>Rent_UserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Buy_UserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Buy_UserControl.Designer.cs">
+      <DependentUpon>Buy_UserControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyBids_UserControl.resx">
+      <DependentUpon>MyBids_UserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyProfile_UserControl.resx">
       <DependentUpon>MyProfile_UserControl.cs</DependentUpon>
@@ -109,6 +136,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="MyProperties_UserControl.resx">
+      <DependentUpon>MyProperties_UserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rent_UserControl.resx">
+      <DependentUpon>Rent_UserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Buy_UserControl.resx">
+      <DependentUpon>Buy_UserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

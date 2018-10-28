@@ -92,8 +92,8 @@ namespace BuyNSell
             cmd.Parameters.AddWithValue("@Name",textBox1.Text);
             cmd.Parameters.AddWithValue("@Email",textBox2.Text);
             cmd.Parameters.AddWithValue("@Password", textBox3.Text);
-            cmd.Parameters.AddWithValue("@Phone", Convert.ToInt32(textBox4.Text));
-            cmd.Parameters.AddWithValue("@Income", Convert.ToInt32(textBox5.Text));
+            cmd.Parameters.AddWithValue("@Phone", Convert.ToInt64(textBox4.Text));
+            cmd.Parameters.AddWithValue("@Income", Convert.ToInt64(textBox5.Text));
             cmd.Parameters.AddWithValue("@Address", textBox6.Text);
             con.Open();
             try
