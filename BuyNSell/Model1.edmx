@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Database3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Database3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bids">
           <Key>
             <PropertyRef Name="UID" />
@@ -19,17 +19,17 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
         <EntityType Name="Buy">
           <Key>
             <PropertyRef Name="PID" />
-            <PropertyRef Name="Area" />
-            <PropertyRef Name="Rooms" />
-            <PropertyRef Name="NoFloors" />
-            <PropertyRef Name="Floor" />
-            <PropertyRef Name="Corner" />
-            <PropertyRef Name="Availability" />
-            <PropertyRef Name="Parking" />
-            <PropertyRef Name="RegYear" />
-            <PropertyRef Name="AskPrice" />
-            <PropertyRef Name="Roadwidth" />
-            <PropertyRef Name="Garden" />
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
           </Key>
           <Property Name="PID" Type="int" Nullable="false" />
           <Property Name="Area" Type="int" Nullable="false" />
@@ -73,17 +73,17 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
         <EntityType Name="Rent">
           <Key>
             <PropertyRef Name="PID" />
-            <PropertyRef Name="Area" />
-            <PropertyRef Name="Rooms" />
-            <PropertyRef Name="NoFloors" />
-            <PropertyRef Name="Floor" />
-            <PropertyRef Name="Corner" />
-            <PropertyRef Name="Availability" />
-            <PropertyRef Name="Parking" />
-            <PropertyRef Name="RegYear" />
-            <PropertyRef Name="AskPrice" />
-            <PropertyRef Name="Road" />
-            <PropertyRef Name="Garden" />
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
           </Key>
           <Property Name="PID" Type="int" Nullable="false" />
           <Property Name="Area" Type="int" Nullable="false" />
@@ -334,8 +334,7 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
             <End Role="Transaction" EntitySet="Transaction" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Database3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -360,6 +359,7 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
         <EntityType Name="Locality">
           <Key>
             <PropertyRef Name="Name" />
+            <PropertyRef Name="City_Name" />
           </Key>
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="City_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -369,6 +369,7 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
         <EntityType Name="Property">
           <Key>
             <PropertyRef Name="PID" />
+            <PropertyRef Name="UID" />
           </Key>
           <Property Name="PID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Locality_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -390,6 +391,9 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
         <EntityType Name="Transaction">
           <Key>
             <PropertyRef Name="TID" />
+            <PropertyRef Name="customer_UID" />
+            <PropertyRef Name="PID" />
+            <PropertyRef Name="owner_UID" />
           </Key>
           <Property Name="TID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="customer_UID" Type="Int32" Nullable="false" />
@@ -420,17 +424,6 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
         <EntityType Name="Buy">
           <Key>
             <PropertyRef Name="PID" />
-            <PropertyRef Name="Area" />
-            <PropertyRef Name="Rooms" />
-            <PropertyRef Name="NoFloors" />
-            <PropertyRef Name="Floor" />
-            <PropertyRef Name="Corner" />
-            <PropertyRef Name="Availability" />
-            <PropertyRef Name="Parking" />
-            <PropertyRef Name="RegYear" />
-            <PropertyRef Name="AskPrice" />
-            <PropertyRef Name="Roadwidth" />
-            <PropertyRef Name="Garden" />
           </Key>
           <Property Name="PID" Type="Int32" Nullable="false" />
           <Property Name="Area" Type="Int32" Nullable="false" />
@@ -451,17 +444,6 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
         <EntityType Name="Rent">
           <Key>
             <PropertyRef Name="PID" />
-            <PropertyRef Name="Area" />
-            <PropertyRef Name="Rooms" />
-            <PropertyRef Name="NoFloors" />
-            <PropertyRef Name="Floor" />
-            <PropertyRef Name="Corner" />
-            <PropertyRef Name="Availability" />
-            <PropertyRef Name="Parking" />
-            <PropertyRef Name="RegYear" />
-            <PropertyRef Name="AskPrice" />
-            <PropertyRef Name="Road" />
-            <PropertyRef Name="Garden" />
           </Key>
           <Property Name="PID" Type="Int32" Nullable="false" />
           <Property Name="Area" Type="Int32" Nullable="false" />
@@ -529,7 +511,7 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
         </Association>
         <Association Name="FK_Buy_ToTable">
           <End Role="Property" Type="Self.Property" Multiplicity="1" />
-          <End Role="Buy" Type="Self.Buy" Multiplicity="*" />
+          <End Role="Buy" Type="Self.Buy" Multiplicity="1" />
           <ReferentialConstraint>
             <Principal Role="Property">
               <PropertyRef Name="PID" />
@@ -553,7 +535,7 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
         </Association>
         <Association Name="FK_Rent_ToTable">
           <End Role="Property" Type="Self.Property" Multiplicity="1" />
-          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="1" />
           <ReferentialConstraint>
             <Principal Role="Property">
               <PropertyRef Name="PID" />
