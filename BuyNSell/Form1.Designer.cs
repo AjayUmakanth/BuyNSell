@@ -56,9 +56,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(33, 147);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 16);
+            this.label2.Size = new System.Drawing.Size(42, 16);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Username";
+            this.label2.Text = "Email";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
@@ -107,6 +107,7 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Wrong Password";
             this.label4.Visible = false;
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // linkLabel1
             // 
@@ -125,10 +126,11 @@
             this.label5.ForeColor = System.Drawing.Color.Red;
             this.label5.Location = new System.Drawing.Point(127, 167);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(119, 13);
+            this.label5.Size = new System.Drawing.Size(93, 13);
             this.label5.TabIndex = 9;
-            this.label5.Text = "User name dosen\'t exist";
+            this.label5.Text = "Email dosen\'t exist";
             this.label5.Visible = false;
+            this.label5.Click += new System.EventHandler(this.label5_Click_1);
             // 
             // Form1
             // 

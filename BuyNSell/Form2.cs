@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace BuyNSell
 {
     public partial class Form2 : Form
     {
+        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\Database3.mdf\";Integrated Security=True");
         public Form2()
         {
             InitializeComponent();
@@ -84,7 +86,38 @@ namespace BuyNSell
 
         private void button1_Click(object sender, EventArgs e)
         {
+            SqlCommand cmd = new SqlCommand("UserAdd_SP", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            Boolean added = true;
+            cmd.Parameters.AddWithValue("@Name",textBox1.Text);
+            cmd.Parameters.AddWithValue("@Email",textBox2.Text);
+            cmd.Parameters.AddWithValue("@Password", textBox3.Text);
+            cmd.Parameters.AddWithValue("@Phone", textBox1.Text);
+            cmd.Parameters.AddWithValue("@Income", textBox1.Text);
+            cmd.Parameters.AddWithValue("@Address", textBox1.Text);
+            con.Open();
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("SQL Error\n"+ex);
+                added = false;
+            }
+            con.Close();
+            if(added)
+                MessageBox.Show("Data added succesfully");
+        }
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form1 obj = new Form1();
+            this.Hide();
+            obj.Show();
+        }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
         }
     }
 }
