@@ -13,6 +13,7 @@ namespace BuyNSell
     public partial class Form3 : Form
     {
         public static String uEmail;
+        public static String uid;
         public Form3(String email)
         {
             uEmail = email;

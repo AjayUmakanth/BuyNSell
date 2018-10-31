@@ -35,5 +35,15 @@ namespace BuyNSell
         {
 
         }
+        public void getBids()
+        {
+            con.Open();
+            String syntax = $"SELECT * FROM [User] WHERE email='{Form3.uEmail}'";
+            cmd = new SqlCommand(syntax, con);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+
+            con.Close();
+        }
     }
 }
