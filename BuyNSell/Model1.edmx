@@ -1,0 +1,771 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Database3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bids">
+          <Key>
+            <PropertyRef Name="UID" />
+            <PropertyRef Name="PID" />
+          </Key>
+          <Property Name="UID" Type="int" Nullable="false" />
+          <Property Name="PID" Type="int" Nullable="false" />
+          <Property Name="BidPrice" Type="money" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\DATABASE3.MDF.dbo.Buy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Buy">
+          <Key>
+            <PropertyRef Name="PID" />
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </Key>
+          <Property Name="PID" Type="int" Nullable="false" />
+          <Property Name="Area" Type="int" Nullable="false" />
+          <Property Name="Rooms" Type="int" Nullable="false" />
+          <Property Name="NoFloors" Type="int" Nullable="false" />
+          <Property Name="Floor" Type="int" Nullable="false" />
+          <Property Name="Corner" Type="bit" Nullable="false" />
+          <Property Name="Availability" Type="bit" Nullable="false" />
+          <Property Name="Parking" Type="int" Nullable="false" />
+          <Property Name="RegYear" Type="date" Nullable="false" />
+          <Property Name="AskPrice" Type="money" Nullable="false" />
+          <Property Name="Roadwidth" Type="int" Nullable="false" />
+          <Property Name="Garden" Type="bit" Nullable="false" />
+          <Property Name="Additional" Type="varchar" MaxLength="50" />
+          <Property Name="Photo" Type="image" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Locality">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="City_Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Property">
+          <Key>
+            <PropertyRef Name="PID" />
+          </Key>
+          <Property Name="PID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Locality_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UID" Type="int" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\DATABASE3.MDF.dbo.Rent' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Rent">
+          <Key>
+            <PropertyRef Name="PID" />
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </Key>
+          <Property Name="PID" Type="int" Nullable="false" />
+          <Property Name="Area" Type="int" Nullable="false" />
+          <Property Name="Rooms" Type="int" Nullable="false" />
+          <Property Name="NoFloors" Type="int" Nullable="false" />
+          <Property Name="Floor" Type="int" Nullable="false" />
+          <Property Name="Corner" Type="bit" Nullable="false" />
+          <Property Name="Availability" Type="bit" Nullable="false" />
+          <Property Name="Parking" Type="int" Nullable="false" />
+          <Property Name="RegYear" Type="date" Nullable="false" />
+          <Property Name="AskPrice" Type="money" Nullable="false" />
+          <Property Name="Road" Type="int" Nullable="false" />
+          <Property Name="Garden" Type="bit" Nullable="false" />
+          <Property Name="Additional" Type="varchar" MaxLength="50" />
+          <Property Name="Photo" Type="image" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="PID" />
+          </Key>
+          <Property Name="PID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="TID" />
+          </Key>
+          <Property Name="TID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customer_UID" Type="int" Nullable="false" />
+          <Property Name="owner_UID" Type="int" Nullable="false" />
+          <Property Name="PID" Type="int" Nullable="false" />
+          <Property Name="price" Type="money" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UID" />
+          </Key>
+          <Property Name="UID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Income" Type="money" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_Bids_ToTable">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Bids" Type="Self.Bids" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="Bids">
+              <PropertyRef Name="UID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bids_ToTable_1">
+          <End Role="Property" Type="Self.Property" Multiplicity="1" />
+          <End Role="Bids" Type="Self.Bids" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="PID" />
+            </Principal>
+            <Dependent Role="Bids">
+              <PropertyRef Name="PID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Buy_ToTable">
+          <End Role="Property" Type="Self.Property" Multiplicity="1" />
+          <End Role="Buy" Type="Self.Buy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="PID" />
+            </Principal>
+            <Dependent Role="Buy">
+              <PropertyRef Name="PID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Locality_ToTable">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Locality" Type="Self.Locality" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="Locality">
+              <PropertyRef Name="City_Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Property_ToTable">
+          <End Role="Locality" Type="Self.Locality" Multiplicity="1" />
+          <End Role="Property" Type="Self.Property" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locality">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="Property">
+              <PropertyRef Name="Locality_Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Property_ToTable_1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Property" Type="Self.Property" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="Property">
+              <PropertyRef Name="UID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rent_ToTable">
+          <End Role="Property" Type="Self.Property" Multiplicity="1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="PID" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="PID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_ToTable">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="customer_UID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_ToTable_1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="owner_UID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_ToTable_2">
+          <End Role="Property" Type="Self.Property" Multiplicity="1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="PID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="PID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database3ModelStoreContainer">
+          <EntitySet Name="Bids" EntityType="Self.Bids" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Locality" EntityType="Self.Locality" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Property" EntityType="Self.Property" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Buy" EntityType="Self.Buy" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Buy].[PID] AS [PID], 
+    [Buy].[Area] AS [Area], 
+    [Buy].[Rooms] AS [Rooms], 
+    [Buy].[NoFloors] AS [NoFloors], 
+    [Buy].[Floor] AS [Floor], 
+    [Buy].[Corner] AS [Corner], 
+    [Buy].[Availability] AS [Availability], 
+    [Buy].[Parking] AS [Parking], 
+    [Buy].[RegYear] AS [RegYear], 
+    [Buy].[AskPrice] AS [AskPrice], 
+    [Buy].[Roadwidth] AS [Roadwidth], 
+    [Buy].[Garden] AS [Garden], 
+    [Buy].[Additional] AS [Additional], 
+    [Buy].[Photo] AS [Photo]
+    FROM [dbo].[Buy] AS [Buy]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Rent" EntityType="Self.Rent" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Rent].[PID] AS [PID], 
+    [Rent].[Area] AS [Area], 
+    [Rent].[Rooms] AS [Rooms], 
+    [Rent].[NoFloors] AS [NoFloors], 
+    [Rent].[Floor] AS [Floor], 
+    [Rent].[Corner] AS [Corner], 
+    [Rent].[Availability] AS [Availability], 
+    [Rent].[Parking] AS [Parking], 
+    [Rent].[RegYear] AS [RegYear], 
+    [Rent].[AskPrice] AS [AskPrice], 
+    [Rent].[Road] AS [Road], 
+    [Rent].[Garden] AS [Garden], 
+    [Rent].[Additional] AS [Additional], 
+    [Rent].[Photo] AS [Photo]
+    FROM [dbo].[Rent] AS [Rent]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Bids_ToTable" Association="Self.FK_Bids_ToTable">
+            <End Role="User" EntitySet="User" />
+            <End Role="Bids" EntitySet="Bids" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bids_ToTable_1" Association="Self.FK_Bids_ToTable_1">
+            <End Role="Property" EntitySet="Property" />
+            <End Role="Bids" EntitySet="Bids" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Buy_ToTable" Association="Self.FK_Buy_ToTable">
+            <End Role="Property" EntitySet="Property" />
+            <End Role="Buy" EntitySet="Buy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Locality_ToTable" Association="Self.FK_Locality_ToTable">
+            <End Role="City" EntitySet="City" />
+            <End Role="Locality" EntitySet="Locality" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Property_ToTable" Association="Self.FK_Property_ToTable">
+            <End Role="Locality" EntitySet="Locality" />
+            <End Role="Property" EntitySet="Property" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Property_ToTable_1" Association="Self.FK_Property_ToTable_1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Property" EntitySet="Property" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rent_ToTable" Association="Self.FK_Rent_ToTable">
+            <End Role="Property" EntitySet="Property" />
+            <End Role="Rent" EntitySet="Rent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_ToTable" Association="Self.FK_Transaction_ToTable">
+            <End Role="User" EntitySet="User" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_ToTable_1" Association="Self.FK_Transaction_ToTable_1">
+            <End Role="User" EntitySet="User" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_ToTable_2" Association="Self.FK_Transaction_ToTable_2">
+            <End Role="Property" EntitySet="Property" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bid">
+          <Key>
+            <PropertyRef Name="UID" />
+            <PropertyRef Name="PID" />
+          </Key>
+          <Property Name="UID" Type="Int32" Nullable="false" />
+          <Property Name="PID" Type="Int32" Nullable="false" />
+          <Property Name="BidPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Bids_ToTable" FromRole="Bids" ToRole="User" />
+          <NavigationProperty Name="Property" Relationship="Self.FK_Bids_ToTable_1" FromRole="Bids" ToRole="Property" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Localities" Relationship="Self.FK_Locality_ToTable" FromRole="City" ToRole="Locality" />
+        </EntityType>
+        <EntityType Name="Locality">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="City_Name" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Locality_ToTable" FromRole="Locality" ToRole="City" />
+          <NavigationProperty Name="Properties" Relationship="Self.FK_Property_ToTable" FromRole="Locality" ToRole="Property" />
+        </EntityType>
+        <EntityType Name="Property">
+          <Key>
+            <PropertyRef Name="PID" />
+            <PropertyRef Name="UID" />
+            <PropertyRef Name="Locality_Name" />
+          </Key>
+          <Property Name="PID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Locality_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UID" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Bids" Relationship="Self.FK_Bids_ToTable_1" FromRole="Property" ToRole="Bids" />
+          <NavigationProperty Name="Locality" Relationship="Self.FK_Property_ToTable" FromRole="Property" ToRole="Locality" />
+          <NavigationProperty Name="Buys" Relationship="Self.FK_Buy_ToTable" FromRole="Property" ToRole="Buy" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Property_ToTable_1" FromRole="Property" ToRole="User" />
+          <NavigationProperty Name="Rents" Relationship="Self.FK_Rent_ToTable" FromRole="Property" ToRole="Rent" />
+          <NavigationProperty Name="Transactions" Relationship="Self.FK_Transaction_ToTable_2" FromRole="Property" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="PID" />
+          </Key>
+          <Property Name="PID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="TID" />
+            <PropertyRef Name="customer_UID" />
+            <PropertyRef Name="PID" />
+            <PropertyRef Name="owner_UID" />
+          </Key>
+          <Property Name="TID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customer_UID" Type="Int32" Nullable="false" />
+          <Property Name="owner_UID" Type="Int32" Nullable="false" />
+          <Property Name="PID" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Property" Relationship="Self.FK_Transaction_ToTable_2" FromRole="Transaction" ToRole="Property" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Transaction_ToTable" FromRole="Transaction" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FK_Transaction_ToTable_1" FromRole="Transaction" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UID" />
+          </Key>
+          <Property Name="UID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="Income" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bids" Relationship="Self.FK_Bids_ToTable" FromRole="User" ToRole="Bids" />
+          <NavigationProperty Name="Properties" Relationship="Self.FK_Property_ToTable_1" FromRole="User" ToRole="Property" />
+          <NavigationProperty Name="Transactions" Relationship="Self.FK_Transaction_ToTable" FromRole="User" ToRole="Transaction" />
+          <NavigationProperty Name="Transactions1" Relationship="Self.FK_Transaction_ToTable_1" FromRole="User" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="Buy">
+          <Key>
+            <PropertyRef Name="PID" />
+          </Key>
+          <Property Name="PID" Type="Int32" Nullable="false" />
+          <Property Name="Area" Type="Int32" Nullable="false" />
+          <Property Name="Rooms" Type="Int32" Nullable="false" />
+          <Property Name="NoFloors" Type="Int32" Nullable="false" />
+          <Property Name="Floor" Type="Int32" Nullable="false" />
+          <Property Name="Corner" Type="Boolean" Nullable="false" />
+          <Property Name="Availability" Type="Boolean" Nullable="false" />
+          <Property Name="Parking" Type="Int32" Nullable="false" />
+          <Property Name="RegYear" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="AskPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Roadwidth" Type="Int32" Nullable="false" />
+          <Property Name="Garden" Type="Boolean" Nullable="false" />
+          <Property Name="Additional" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Property" Relationship="Self.FK_Buy_ToTable" FromRole="Buy" ToRole="Property" />
+        </EntityType>
+        <EntityType Name="Rent">
+          <Key>
+            <PropertyRef Name="PID" />
+          </Key>
+          <Property Name="PID" Type="Int32" Nullable="false" />
+          <Property Name="Area" Type="Int32" Nullable="false" />
+          <Property Name="Rooms" Type="Int32" Nullable="false" />
+          <Property Name="NoFloors" Type="Int32" Nullable="false" />
+          <Property Name="Floor" Type="Int32" Nullable="false" />
+          <Property Name="Corner" Type="Boolean" Nullable="false" />
+          <Property Name="Availability" Type="Boolean" Nullable="false" />
+          <Property Name="Parking" Type="Int32" Nullable="false" />
+          <Property Name="RegYear" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="AskPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Road" Type="Int32" Nullable="false" />
+          <Property Name="Garden" Type="Boolean" Nullable="false" />
+          <Property Name="Additional" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Property" Relationship="Self.FK_Rent_ToTable" FromRole="Rent" ToRole="Property" />
+        </EntityType>
+        <Association Name="FK_Bids_ToTable">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Bids" Type="Self.Bid" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="Bids">
+              <PropertyRef Name="UID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bids_ToTable_1">
+          <End Role="Property" Type="Self.Property" Multiplicity="1" />
+          <End Role="Bids" Type="Self.Bid" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="PID" />
+            </Principal>
+            <Dependent Role="Bids">
+              <PropertyRef Name="PID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Locality_ToTable">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Locality" Type="Self.Locality" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="Locality">
+              <PropertyRef Name="City_Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Property_ToTable">
+          <End Role="Locality" Type="Self.Locality" Multiplicity="1" />
+          <End Role="Property" Type="Self.Property" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locality">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="Property">
+              <PropertyRef Name="Locality_Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Buy_ToTable">
+          <End Role="Property" Type="Self.Property" Multiplicity="1" />
+          <End Role="Buy" Type="Self.Buy" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="PID" />
+            </Principal>
+            <Dependent Role="Buy">
+              <PropertyRef Name="PID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Property_ToTable_1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Property" Type="Self.Property" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="Property">
+              <PropertyRef Name="UID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rent_ToTable">
+          <End Role="Property" Type="Self.Property" Multiplicity="1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="PID" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="PID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_ToTable_2">
+          <End Role="Property" Type="Self.Property" Multiplicity="1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="PID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="PID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_ToTable">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="customer_UID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_ToTable_1">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="owner_UID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bids" EntityType="Self.Bid" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Localities" EntityType="Self.Locality" />
+          <EntitySet Name="Properties" EntityType="Self.Property" />
+          <EntitySet Name="Tables" EntityType="Self.Table" />
+          <EntitySet Name="Transactions" EntityType="Self.Transaction" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Buys" EntityType="Self.Buy" />
+          <EntitySet Name="Rents" EntityType="Self.Rent" />
+          <AssociationSet Name="FK_Bids_ToTable" Association="Self.FK_Bids_ToTable">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Bids" EntitySet="Bids" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bids_ToTable_1" Association="Self.FK_Bids_ToTable_1">
+            <End Role="Property" EntitySet="Properties" />
+            <End Role="Bids" EntitySet="Bids" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Locality_ToTable" Association="Self.FK_Locality_ToTable">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Locality" EntitySet="Localities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Property_ToTable" Association="Self.FK_Property_ToTable">
+            <End Role="Locality" EntitySet="Localities" />
+            <End Role="Property" EntitySet="Properties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Buy_ToTable" Association="Self.FK_Buy_ToTable">
+            <End Role="Property" EntitySet="Properties" />
+            <End Role="Buy" EntitySet="Buys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Property_ToTable_1" Association="Self.FK_Property_ToTable_1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Property" EntitySet="Properties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rent_ToTable" Association="Self.FK_Rent_ToTable">
+            <End Role="Property" EntitySet="Properties" />
+            <End Role="Rent" EntitySet="Rents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_ToTable_2" Association="Self.FK_Transaction_ToTable_2">
+            <End Role="Property" EntitySet="Properties" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_ToTable" Association="Self.FK_Transaction_ToTable">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_ToTable_1" Association="Self.FK_Transaction_ToTable_1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Database3ModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+          <EntitySetMapping Name="Bids">
+            <EntityTypeMapping TypeName="Database3Model.Bid">
+              <MappingFragment StoreEntitySet="Bids">
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="PID" ColumnName="PID" />
+                <ScalarProperty Name="BidPrice" ColumnName="BidPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="Database3Model.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Localities">
+            <EntityTypeMapping TypeName="Database3Model.Locality">
+              <MappingFragment StoreEntitySet="Locality">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="City_Name" ColumnName="City_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Properties">
+            <EntityTypeMapping TypeName="Database3Model.Property">
+              <MappingFragment StoreEntitySet="Property">
+                <ScalarProperty Name="PID" ColumnName="PID" />
+                <ScalarProperty Name="Locality_Name" ColumnName="Locality_Name" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tables">
+            <EntityTypeMapping TypeName="Database3Model.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="PID" ColumnName="PID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="Database3Model.Transaction">
+              <MappingFragment StoreEntitySet="Transaction">
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="customer_UID" ColumnName="customer_UID" />
+                <ScalarProperty Name="owner_UID" ColumnName="owner_UID" />
+                <ScalarProperty Name="PID" ColumnName="PID" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Database3Model.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Income" ColumnName="Income" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Buys">
+            <EntityTypeMapping TypeName="Database3Model.Buy">
+              <MappingFragment StoreEntitySet="Buy">
+                <ScalarProperty Name="PID" ColumnName="PID" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Rooms" ColumnName="Rooms" />
+                <ScalarProperty Name="NoFloors" ColumnName="NoFloors" />
+                <ScalarProperty Name="Floor" ColumnName="Floor" />
+                <ScalarProperty Name="Corner" ColumnName="Corner" />
+                <ScalarProperty Name="Availability" ColumnName="Availability" />
+                <ScalarProperty Name="Parking" ColumnName="Parking" />
+                <ScalarProperty Name="RegYear" ColumnName="RegYear" />
+                <ScalarProperty Name="AskPrice" ColumnName="AskPrice" />
+                <ScalarProperty Name="Roadwidth" ColumnName="Roadwidth" />
+                <ScalarProperty Name="Garden" ColumnName="Garden" />
+                <ScalarProperty Name="Additional" ColumnName="Additional" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rents">
+            <EntityTypeMapping TypeName="Database3Model.Rent">
+              <MappingFragment StoreEntitySet="Rent">
+                <ScalarProperty Name="PID" ColumnName="PID" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Rooms" ColumnName="Rooms" />
+                <ScalarProperty Name="NoFloors" ColumnName="NoFloors" />
+                <ScalarProperty Name="Floor" ColumnName="Floor" />
+                <ScalarProperty Name="Corner" ColumnName="Corner" />
+                <ScalarProperty Name="Availability" ColumnName="Availability" />
+                <ScalarProperty Name="Parking" ColumnName="Parking" />
+                <ScalarProperty Name="RegYear" ColumnName="RegYear" />
+                <ScalarProperty Name="AskPrice" ColumnName="AskPrice" />
+                <ScalarProperty Name="Road" ColumnName="Road" />
+                <ScalarProperty Name="Garden" ColumnName="Garden" />
+                <ScalarProperty Name="Additional" ColumnName="Additional" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
