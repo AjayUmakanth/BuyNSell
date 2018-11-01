@@ -40,7 +40,7 @@ namespace BuyNSell
         public void getBids()
         {
             con.Open();
-            String syntax = $"SELECT * FROM [User] WHERE email='{Form3.uEmail}'";
+            String syntax = $"SELECT * FROM [User] WHERE email='{Form3.UID}'";
             cmd = new SqlCommand(syntax, con);
             dr = cmd.ExecuteReader();
             dr.Read();

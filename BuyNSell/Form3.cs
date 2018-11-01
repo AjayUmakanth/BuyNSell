@@ -12,11 +12,10 @@ namespace BuyNSell
 {
     public partial class Form3 : Form
     {
-        public static String uEmail;
-        public static String uid;
-        public Form3(String email)
+        public static String UID;
+        public Form3(String uid)
         {
-            uEmail = email;
+            UID = uid;
             InitializeComponent();
             contentPanel.Controls.Add(MyProfile_UserControl.Instance);
             MyProfile_UserControl.Instance.Dock = DockStyle.Fill;
@@ -103,7 +102,7 @@ namespace BuyNSell
 
         private void logOut_Click(object sender, EventArgs e)
         {
-            uEmail = "";
+            UID = "";
             Form1 obj = new Form1();
             this.Hide();
             obj.Show();

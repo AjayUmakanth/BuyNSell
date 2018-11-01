@@ -60,14 +60,21 @@ namespace BuyNSell
         {
             label5.Hide();
             label4.Hide(); 
-            String email = textBox1.Text, pass = authenticate(email),typedPass= textBox2.Text; 
+            String email = textBox1.Text, pass = authenticate(email),typedPass= textBox2.Text,uid; 
             if (pass.Equals(""))
                 label5.Show();
             else
             {
                 if (pass.Equals(typedPass))
                 {
-                    Form3 obj = new Form3(email);
+                    con.Open();
+                    String syntax = $"SELECT UID FROM [User] WHERE email='{email}'";
+                    cmd = new SqlCommand(syntax, con);
+                    dr = cmd.ExecuteReader();
+                    dr.Read();
+                    uid = dr[0].ToString();
+                    con.Close();
+                    Form3 obj = new Form3(uid);
                     this.Hide();
                     obj.Show();
                 }
