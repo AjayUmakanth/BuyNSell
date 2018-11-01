@@ -12,17 +12,18 @@ namespace BuyNSell
 {
     public partial class Form3 : Form
     {
-        public static String uEmail;
         public static String uid;
+        public static String uid1;
         public Form3(String email)
         {
-            uEmail = email;
+            uid = email;
             InitializeComponent();
             contentPanel.Controls.Add(MyProfile_UserControl.Instance);
             MyProfile_UserControl.Instance.Dock = DockStyle.Fill;
             MyProfile_UserControl.Instance.showDetails();
             MyProfile_UserControl.Instance.BringToFront();
         }
+     
 
         private void Form3_Load(object sender, EventArgs e)
         {
@@ -103,7 +104,7 @@ namespace BuyNSell
 
         private void logOut_Click(object sender, EventArgs e)
         {
-            uEmail = "";
+            uid = "";
             Form1 obj = new Form1();
             this.Hide();
             obj.Show();

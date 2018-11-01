@@ -38,7 +38,7 @@ namespace BuyNSell
         public void showDetails()
         {            
             con.Open();
-            String syntax = $"SELECT * FROM [User] WHERE email='{Form3.uEmail}'";
+            String syntax = $"SELECT * FROM [User] WHERE email='{Form3.uid}'";
             cmd = new SqlCommand(syntax, con);
             dr = cmd.ExecuteReader();
             dr.Read();
