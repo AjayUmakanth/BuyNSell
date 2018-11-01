@@ -44,5 +44,13 @@ namespace BuyNSell
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            Form6 obj = new Form6();
+            obj.Show();
+
+        }
     }
 }

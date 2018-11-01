@@ -40,6 +40,7 @@ namespace BuyNSell
             MyProfile_UserControl.Instance.BringToFront();
         }
 
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
