@@ -39,7 +39,7 @@
             this.Locality_Name = new System.Windows.Forms.Label();
             this.UID = new System.Windows.Forms.Label();
             this.Address = new System.Windows.Forms.Label();
-            this.Name = new System.Windows.Forms.Label();
+            this.UserName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -51,6 +51,7 @@
             this.label1.Size = new System.Drawing.Size(239, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "My Properties";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
@@ -155,21 +156,21 @@
             this.Address.TabIndex = 11;
             this.Address.Text = "Address:";
             // 
-            // Name
+            // UserName
             // 
-            this.Name.AutoSize = true;
-            this.Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name.Location = new System.Drawing.Point(174, 327);
-            this.Name.Name = "Name";
-            this.Name.Size = new System.Drawing.Size(70, 25);
-            this.Name.TabIndex = 12;
-            this.Name.Text = "Name:";
+            this.UserName.AutoSize = true;
+            this.UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserName.Location = new System.Drawing.Point(174, 327);
+            this.UserName.Name = "UserName";
+            this.UserName.Size = new System.Drawing.Size(70, 25);
+            this.UserName.TabIndex = 12;
+            this.UserName.Text = "Name:";
             // 
             // MyProperties_UserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.Name);
+            this.Controls.Add(this.UserName);
             this.Controls.Add(this.Address);
             this.Controls.Add(this.UID);
             this.Controls.Add(this.Locality_Name);
@@ -202,6 +203,6 @@
         public System.Windows.Forms.Label Locality_Name;
         public System.Windows.Forms.Label UID;
         public System.Windows.Forms.Label Address;
-        public System.Windows.Forms.Label Name;
+        public System.Windows.Forms.Label UserName;
     }
 }

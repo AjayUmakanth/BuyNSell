@@ -33,7 +33,7 @@ namespace BuyNSell
         public void getBids()
         {
             con.Open();
-            String syntax = $"SELECT * FROM [User] WHERE UID='{Form3.UID}'";
+            String syntax = $"SELECT * FROM [User] WHERE email='{Form3.UID}'";
             cmd = new SqlCommand(syntax, con);
             dr = cmd.ExecuteReader();
             dr.Read();
@@ -57,7 +57,7 @@ namespace BuyNSell
             Locality_Name.Text = dr[1].ToString();
             UID.Text = dr[2].ToString();
             Address.Text = dr[3].ToString();
-            Name.Text = dr[4].ToString();
+            UserName.Text = dr[4].ToString();
             con.Close();
         }
         private void button1_Click(object sender, EventArgs e)
@@ -74,6 +74,11 @@ namespace BuyNSell
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
