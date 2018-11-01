@@ -94,6 +94,12 @@
     <Compile Include="Form6.Designer.cs">
       <DependentUpon>Form6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model1.cs" />
+    <Compile Include="Model1.Designer.cs">
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="MyBids_UserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
