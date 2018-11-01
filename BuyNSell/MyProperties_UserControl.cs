@@ -44,7 +44,20 @@ namespace BuyNSell
         {
 
         }
-
+        public void showDetails()
+        {
+            con.Open();
+            String syntax = $"SELECT * FROM [pROPERTY] WHERE email='{Form3.uEmail}'";
+            cmd = new SqlCommand(syntax, con);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            PID.Text = dr[0].ToString();
+            Locality_Name.Text = dr[1].ToString();
+            UID.Text = dr[2].ToString();
+            Address.Text = dr[4].ToString();
+            Name.Text = dr[5].ToString();
+            con.Close();
+        }
         private void button1_Click(object sender, EventArgs e)
         {
 
