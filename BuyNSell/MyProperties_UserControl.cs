@@ -33,7 +33,7 @@ namespace BuyNSell
         public void getBids()
         {
             con.Open();
-            String syntax = $"SELECT * FROM [User] WHERE email='{Form3.UID}'";
+            String syntax = $"SELECT * FROM [User] WHERE email='{Form3.uid}'";
             cmd = new SqlCommand(syntax, con);
             dr = cmd.ExecuteReader();
             dr.Read();
@@ -44,12 +44,37 @@ namespace BuyNSell
         {
 
         }
+        public void showDetails()
+        {
+            con.Open();
 
+            //CHeck THis LIne--->
+            String syntax = $"SELECT * FROM [PROPERTY] WHERE UID='{Form3.uid}'";
+            cmd = new SqlCommand(syntax, con);
+            dr = cmd.ExecuteReader();
+            dr.Read();
+            PID.Text = dr[0].ToString();
+            Locality_Name.Text = dr[1].ToString();
+            UID.Text = dr[2].ToString();
+            Address.Text = dr[3].ToString();
+            Name.Text = dr[4].ToString();
+            con.Close();
+        }
         private void button1_Click(object sender, EventArgs e)
         {
 
             Form6 obj = new Form6();
             obj.Show();
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
 
         }
     }
