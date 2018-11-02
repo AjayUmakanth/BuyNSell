@@ -17,12 +17,14 @@ namespace BuyNSell
         String str = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\Database3.mdf\";Integrated Security=True";
         string cityName;
         string locName;
+        string type;
         SqlConnection con;
         public Form6()
         {
             InitializeComponent();
             cities.DropDownStyle = ComboBoxStyle.DropDownList;
             locality.DropDownStyle = ComboBoxStyle.DropDownList;
+            Buy_Rent.DropDownStyle = ComboBoxStyle.DropDownList;
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -50,7 +52,6 @@ namespace BuyNSell
         {
             ComboBox comboBox = (ComboBox)sender;
             locName = (string)comboBox.SelectedItem;
-
         }
         private void Form6_Load(object sender, EventArgs e)
         {
@@ -70,6 +71,10 @@ namespace BuyNSell
             {
                 MessageBox.Show(x.ToString());
             }
+
+            Buy_Rent.Items.Add("Buy");
+            Buy_Rent.Items.Add("Rent");
+
         }
         private void label11_Click(object sender, EventArgs e)
         {
@@ -170,18 +175,51 @@ namespace BuyNSell
             int available = (availability.Checked) ? 1 : 0;
             int gard = (garden.Checked) ? 1 : 0;
             int corn = (corner.Checked) ? 1 : 0;
-            if (image.Text != "")
+            try
             {
-                FileStream stream = new FileStream(image.Text, FileMode.Open, FileAccess.Read);
-                imagePath = new BinaryReader(stream).ReadBytes((int)stream.Length);
+                if (image.Text != "")
+                {
+                    FileStream stream = new FileStream(image.Text, FileMode.Open, FileAccess.Read);
+                    imagePath = new BinaryReader(stream).ReadBytes((int)stream.Length);
+                }
+                String property_name = PName.Text;
+                String qry1 = $"Insert into property (Locality_Name,UID,Address,PropertyName,City_Name) values ('{locName}',{Form3.UID},'{Address.Text}','{PName}','{cities.SelectedItem}');";
+                String qry2 = $"Select * from Property where UID='{Form3.UID}'and PropertyName='{PName}';";
+                String qry3 = $"Insert into {type} (PID,Area,Rooms,NoFloors,Floor,Corner,Availability,Parking,RegYear,AskPrice,Road,Garden,Additional,Photo) values ('{locName}',{Form3.UID},'{Address.Text}','{PName}','{cities.SelectedItem}');";
+
+
+                con = new SqlConnection(str);
+                con.Open();
+                SqlDataReader dr = new SqlCommand(qry1, con).ExecuteReader();
+                MessageBox.Show("Data1 added successfully");
+                con.Close();
+                con = new SqlConnection(str);
+                con.Open();
+                SqlDataReader dr2 = new SqlCommand(qry2, con).ExecuteReader();
+                dr2.Read();
+                label2.Text= dr[0].ToString();
+                con.Close();
+                MessageBox.Show("Data2 added successfully");
             }
-            String property_name = PName.Text;
-            String qry1 = $"Insert into property values (DEFAULT,'{locName}',{Form3.UID},'{Address.Text}','{cities.SelectedItem}')";
-            con = new SqlConnection(str);
-            con.Open();
-            SqlDataReader dr = new SqlCommand(qry1, con).ExecuteReader();
-            con.Close();
-            MessageBox.Show("Data added successfully");
+            catch(Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            ComboBox comboBox = (ComboBox)sender;
+            type = (string)comboBox.SelectedItem;
+        }
+        private void label6_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
