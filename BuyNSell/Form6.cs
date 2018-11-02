@@ -177,8 +177,8 @@ namespace BuyNSell
             int corn = (corner.Checked) ? 1 : 0;
             String pidVal = "";
 
-
-
+            try
+            {
                 if (image.Text != "")
                 {
                     FileStream stream = new FileStream(image.Text, FileMode.Open, FileAccess.Read);
@@ -197,16 +197,28 @@ namespace BuyNSell
                 String qry2 = $"Select PID from Property where UID='{Form3.UID}'and PropertyName='{PName}';";
                 dr = new SqlCommand(qry2, con).ExecuteReader();
                 dr.Read();
-                pidVal= dr[0].ToString();
+                pidVal = dr[0].ToString();
                 MessageBox.Show("Data2 added successfully");
-
+                dr.Close();
 
                 String qry3 = $"Insert into {type} (PID,Area,Rooms,NoFloors,Floor,Corner,Availability,Parking,RegYear,AskPrice,Road,Garden,Additional,Photo) " +
-                   $"values ({pidVal},{area.Text},{rooms.Text},{noFloor.Text},{floorNo.Text},{corn},{available},{parking.Text},{regDate.Value.Date.ToString("yyyyMMdd")},{askPrice.Text},{roads.Text},{gard},'{additional.Text}',{imagePath});";
-                dr = new SqlCommand(qry3, con).ExecuteReader();
+                   $"values ({pidVal},{area.Text},{rooms.Text},{noFloor.Text},{floorNo.Text},{corn},{available},{parking.Text},@regYear,{askPrice.Text},{roads.Text},{gard},'{additional.Text} ',@imagePath);";
+                SqlCommand cmd = new SqlCommand(qry3, con);
+                cmd.Parameters.Add("@regYear", SqlDbType.Date).Value = regDate.Value.Date;
+
+                if (imagePath != null)
+                    cmd.Parameters.Add("@imagePath", imagePath);
+                else
+                    cmd.Parameters.Add("@imagePath", "NULL");
+                cmd.ExecuteNonQuery();
                 MessageBox.Show("Data3 added successfully");
 
                 dr.Close();
+            }
+            catch(Exception exe)
+            {
+                MessageBox.Show(exe.ToString());
+            }
 
 
         }
