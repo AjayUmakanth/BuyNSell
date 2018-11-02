@@ -16,7 +16,7 @@ namespace BuyNSell
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\Database3.mdf\";Integrated Security=True");
         SqlCommand cmd;
         SqlDataReader dr;
-        private static MyProperties_UserControl _instance;
+        public static MyProperties_UserControl _instance;
         public static MyProperties_UserControl Instance
         {
             get
@@ -44,6 +44,9 @@ namespace BuyNSell
         {
 
         }
+
+
+
         public void showDetails()
         {
             con.Open();
@@ -54,19 +57,14 @@ namespace BuyNSell
             dr = cmd.ExecuteReader();
             dr.Read();
             PID.Text = dr[0].ToString();
-            Locality_Name.Text = dr[1].ToString();
+            LOCALITY.Text = dr[1].ToString();
             UID.Text = dr[2].ToString();
-            Address.Text = dr[3].ToString();
-            UserName.Text = dr[4].ToString();
+            ADDRESS.Text = dr[3].ToString();
+            NAME.Text = dr[4].ToString();
+           
             con.Close();
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            Form6 obj = new Form6();
-            obj.Show();
-
-        }
+      
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -82,5 +80,23 @@ namespace BuyNSell
         {
 
         }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+       // public static string PID1;
+       private void PID_Click(object sender, EventArgs e)
+       {
+      //      PID1 = showDetails();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Form6 obj = new Form6();
+            obj.Show();
+        }
+
+      
     }
 }
