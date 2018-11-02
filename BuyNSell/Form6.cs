@@ -14,7 +14,7 @@ namespace BuyNSell
 {
     public partial class Form6 : Form
     {
-        String str = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\Database3.mdf\";Integrated Security=True";
+        String str = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\Database3.mdf\";Integrated Security=True;MultipleActiveResultSets=True";
         string cityName;
         string locName;
         string type;
@@ -175,36 +175,40 @@ namespace BuyNSell
             int available = (availability.Checked) ? 1 : 0;
             int gard = (garden.Checked) ? 1 : 0;
             int corn = (corner.Checked) ? 1 : 0;
-            try
-            {
+            String pidVal = "";
+
+
+
                 if (image.Text != "")
                 {
                     FileStream stream = new FileStream(image.Text, FileMode.Open, FileAccess.Read);
                     imagePath = new BinaryReader(stream).ReadBytes((int)stream.Length);
                 }
+
                 String property_name = PName.Text;
-                String qry1 = $"Insert into property (Locality_Name,UID,Address,PropertyName,City_Name) values ('{locName}',{Form3.UID},'{Address.Text}','{PName}','{cities.SelectedItem}');";
-                String qry2 = $"Select * from Property where UID='{Form3.UID}'and PropertyName='{PName}';";
-                String qry3 = $"Insert into {type} (PID,Area,Rooms,NoFloors,Floor,Corner,Availability,Parking,RegYear,AskPrice,Road,Garden,Additional,Photo) values ('{locName}',{Form3.UID},'{Address.Text}','{PName}','{cities.SelectedItem}');";
-
-
                 con = new SqlConnection(str);
                 con.Open();
+
+                String qry1 = $"Insert into property (Locality_Name,UID,Address,PropertyName,City_Name) values ('{locName}',{Form3.UID},'{Address.Text}','{PName}','{cities.SelectedItem}');";
                 SqlDataReader dr = new SqlCommand(qry1, con).ExecuteReader();
                 MessageBox.Show("Data1 added successfully");
-                con.Close();
-                con = new SqlConnection(str);
-                con.Open();
-                SqlDataReader dr2 = new SqlCommand(qry2, con).ExecuteReader();
-                dr2.Read();
-                label2.Text= dr[0].ToString();
-                con.Close();
+
+
+                String qry2 = $"Select PID from Property where UID='{Form3.UID}'and PropertyName='{PName}';";
+                dr = new SqlCommand(qry2, con).ExecuteReader();
+                dr.Read();
+                pidVal= dr[0].ToString();
                 MessageBox.Show("Data2 added successfully");
-            }
-            catch(Exception exc)
-            {
-                MessageBox.Show(exc.ToString());
-            }
+
+
+                String qry3 = $"Insert into {type} (PID,Area,Rooms,NoFloors,Floor,Corner,Availability,Parking,RegYear,AskPrice,Road,Garden,Additional,Photo) " +
+                   $"values ({pidVal},{area.Text},{rooms.Text},{noFloor.Text},{floorNo.Text},{corn},{available},{parking.Text},{regDate.Value.Date.ToString("yyyyMMdd")},{askPrice.Text},{roads.Text},{gard},'{additional.Text}',{imagePath});";
+                dr = new SqlCommand(qry3, con).ExecuteReader();
+                MessageBox.Show("Data3 added successfully");
+
+                dr.Close();
+
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -218,6 +222,16 @@ namespace BuyNSell
             type = (string)comboBox.SelectedItem;
         }
         private void label6_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rooms_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void floorNo_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -202,6 +202,7 @@
             this.floorNo.Name = "floorNo";
             this.floorNo.Size = new System.Drawing.Size(121, 20);
             this.floorNo.TabIndex = 15;
+            this.floorNo.TextChanged += new System.EventHandler(this.floorNo_TextChanged);
             // 
             // floor_no
             // 
@@ -219,6 +220,7 @@
             this.rooms.Name = "rooms";
             this.rooms.Size = new System.Drawing.Size(121, 20);
             this.rooms.TabIndex = 17;
+            this.rooms.TextChanged += new System.EventHandler(this.rooms_TextChanged);
             // 
             // road
             // 
