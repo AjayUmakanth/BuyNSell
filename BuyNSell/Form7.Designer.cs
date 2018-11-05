@@ -483,6 +483,7 @@
             this.GARDEN.Size = new System.Drawing.Size(135, 25);
             this.GARDEN.TabIndex = 145;
             this.GARDEN.Text = "No of Rooms :";
+            this.GARDEN.Click += new System.EventHandler(this.GARDEN_Click);
             // 
             // AVAILABILITY
             // 

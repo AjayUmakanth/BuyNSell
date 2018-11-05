@@ -30,9 +30,11 @@ namespace BuyNSell
         {
             InitializeComponent();
             refreshDataGridView();
+            this.myPropView.Refresh();
         }
         private void MyProperties_UserControl_Load(object sender, EventArgs e)
         {
+            this.myPropView.Refresh();
             refreshDataGridView();
         }
 
@@ -81,6 +83,7 @@ namespace BuyNSell
             sda.Fill(dt);
             con.Close();
             myPropView.DataSource = dt;
+            this.myPropView.Refresh();
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

@@ -62,6 +62,8 @@ namespace BuyNSell
                 contentPanel.Controls.Add(MyProperties_UserControl.Instance);
                 MyProperties_UserControl.Instance.Dock = DockStyle.Fill;
             }
+            contentPanel.Controls.Add(MyProperties_UserControl.Instance);
+            MyProperties_UserControl.Instance.Dock = DockStyle.Fill;
             MyProperties_UserControl.Instance.BringToFront();
         }
 
@@ -104,8 +106,8 @@ namespace BuyNSell
         {
             UID = "";
             Form1 obj = new Form1();
-            this.Hide();
             obj.Show();
+            this.Hide();
         }
     }
 }

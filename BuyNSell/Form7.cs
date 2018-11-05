@@ -17,7 +17,7 @@ namespace BuyNSell
     {
         String str = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\Database3.mdf\";Integrated Security=True;MultipleActiveResultSets=True";
         SqlConnection con;
-        static string selectedPID = "";
+        public static string selectedPID = "";
         static Boolean isOwner = false;
         public Form7(string pid)
         {
@@ -92,7 +92,21 @@ namespace BuyNSell
         }
         private void button1_Click(object sender, EventArgs e)
         {
-
+            if(!isOwner)
+            {
+                if (MessageBox.Show($"Do you want to bid on this property ??", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Form8 obj = new Form8();
+                    obj.Show();
+                    this.Hide();
+                }            
+            }
+            else
+            {
+                Form9 obj = new Form9();
+                obj.Show();
+                this.Hide();
+            }
         }
 
 
@@ -282,6 +296,11 @@ namespace BuyNSell
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GARDEN_Click(object sender, EventArgs e)
         {
 
         }

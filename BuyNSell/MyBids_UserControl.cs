@@ -34,7 +34,7 @@ namespace BuyNSell
         public void refreshDataGridView()
         {
             con.Open();
-            String syntax = $"SELECT PID,BidPrice FROM [Bids] WHERE UID = '{Form3.UID}'";
+            String syntax = $"SELECT [Bids].PID,PropertyName,BidPrice,AskPrice FROM [Bids] ,[Property] WHERE [Bids].UID = '{Form3.UID}' and [Bids].PID= [Property].PID";
             cmd = new SqlCommand(syntax, con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
