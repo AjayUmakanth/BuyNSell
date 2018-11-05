@@ -30,6 +30,19 @@ namespace BuyNSell
         public Buy_UserControl()
         {
             InitializeComponent();
+            refreshDataGridView();
+        }
+
+        public void refreshDataGridView()
+        {
+            con.Open();
+            String syntax = $"SELECT PID,PropertyName,Address,City_Name,Locality_Name,AskPrice,Availablity FROM [Property] WHERE Type='Buy' and UID not in ({Form3.UID})";
+            cmd = new SqlCommand(syntax, con);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            con.Close();
+            myPropView.DataSource = dt;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -39,7 +52,24 @@ namespace BuyNSell
 
         private void Buy_UserControl_Load(object sender, EventArgs e)
         {
+            refreshDataGridView();
+        }
 
+        private void myPropView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.myPropView.Rows[e.RowIndex];
+                String selected_pid = row.Cells["PID"].Value.ToString();
+                if (MessageBox.Show($"Do you want to see property '{row.Cells["PropertyName"].Value.ToString()}'??", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Form7 obj = new Form7(selected_pid);
+                    obj.Show();
+                    refreshDataGridView();
+                    this.myPropView.Refresh();
+                }
+
+            }
         }
     }
 }

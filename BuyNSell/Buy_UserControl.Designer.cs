@@ -29,27 +29,40 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
+            this.myPropView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.myPropView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(230, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 39);
+            this.label1.Size = new System.Drawing.Size(92, 46);
             this.label1.TabIndex = 0;
             this.label1.Text = "Buy";
             this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // myPropView
+            // 
+            this.myPropView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.myPropView.Location = new System.Drawing.Point(16, 85);
+            this.myPropView.Name = "myPropView";
+            this.myPropView.Size = new System.Drawing.Size(543, 380);
+            this.myPropView.TabIndex = 75;
+            this.myPropView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myPropView_CellContentClick);
             // 
             // Buy_UserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.myPropView);
             this.Controls.Add(this.label1);
             this.Name = "Buy_UserControl";
-            this.Size = new System.Drawing.Size(577, 474);
+            this.Size = new System.Drawing.Size(577, 520);
             this.Load += new System.EventHandler(this.Buy_UserControl_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.myPropView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -58,5 +71,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView myPropView;
     }
 }

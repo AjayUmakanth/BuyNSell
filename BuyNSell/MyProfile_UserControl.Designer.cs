@@ -188,7 +188,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "MyProfile_UserControl";
-            this.Size = new System.Drawing.Size(577, 474);
+            this.Size = new System.Drawing.Size(577, 520);
             this.Load += new System.EventHandler(this.MyProfile_UserControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

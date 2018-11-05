@@ -189,31 +189,35 @@ namespace BuyNSell
                 con = new SqlConnection(str);
                 con.Open();
 
-                String qry1 = $"Insert into property (Locality_Name,UID,Address,PropertyName,City_Name) values ('{locName}',{Form3.UID},'{Address.Text}','{PName}','{cities.SelectedItem}');";
+                String qry1 = $"Insert into property (UID,PropertyName,Address,City_Name,Locality_Name,AskPrice,Availablity,Type) values " +
+                    $"({Form3.UID},'{PName.Text}','{Address.Text}','{cities.SelectedItem}','{locName}',{askPrice.Text},{available},'{type}');";
                 SqlDataReader dr = new SqlCommand(qry1, con).ExecuteReader();
-                MessageBox.Show("Data1 added successfully");
 
 
-                String qry2 = $"Select PID from Property where UID='{Form3.UID}'and PropertyName='{PName}';";
+                String qry2 = $"Select PID from Property where UID='{Form3.UID}'and PropertyName='{PName.Text}';";
                 dr = new SqlCommand(qry2, con).ExecuteReader();
                 dr.Read();
                 pidVal = dr[0].ToString();
-                MessageBox.Show("Data2 added successfully");
-                dr.Close();
 
-                String qry3 = $"Insert into {type} (PID,Area,Rooms,NoFloors,Floor,Corner,Availability,Parking,RegYear,AskPrice,Road,Garden,Additional,Photo) " +
-                   $"values ({pidVal},{area.Text},{rooms.Text},{noFloor.Text},{floorNo.Text},{corn},{available},{parking.Text},@regYear,{askPrice.Text},{roads.Text},{gard},'{additional.Text} ',@imagePath);";
+
+                dr.Close();
+                String qry3 = $"Insert into {type} (PID,Area,Rooms,NoFloors,Floor,Parking,Road,RegYear,Garden,Corner,Additional,Photo) " +
+                   $"values ({pidVal},{area.Text},{rooms.Text},{noFloor.Text},{floorNo.Text},{parking.Text},{roads.Text},@regYear,{gard},{corn},'{additional.Text}',@imagePath);";
                 SqlCommand cmd = new SqlCommand(qry3, con);
                 cmd.Parameters.Add("@regYear", SqlDbType.Date).Value = regDate.Value.Date;
-
                 if (imagePath != null)
                     cmd.Parameters.Add("@imagePath", imagePath);
                 else
-                    cmd.Parameters.Add("@imagePath", "NULL");
+                    cmd.Parameters.Add("@imagePath", SqlDbType.VarBinary).Value = DBNull.Value;
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Data3 added successfully");
 
+                MessageBox.Show("Peoperty Created successfully");
                 dr.Close();
+
+                Form6 obj = new Form6();
+                this.Hide();
+                obj.Refresh();
+                obj.Show();
             }
             catch(Exception exe)
             {
@@ -221,7 +225,7 @@ namespace BuyNSell
             }
 
 
-        }
+}
 
         private void label2_Click(object sender, EventArgs e)
         {

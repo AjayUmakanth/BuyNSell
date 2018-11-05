@@ -29,42 +29,12 @@ namespace BuyNSell
         public MyProperties_UserControl()
         {
             InitializeComponent();
-        }
-        public void getBids()
-        {
-            con.Open();
-            String syntax = $"SELECT * FROM [User] WHERE email='{Form3.UID}'";
-            cmd = new SqlCommand(syntax, con);
-            dr = cmd.ExecuteReader();
-            dr.Read();
-
-            con.Close();
+            refreshDataGridView();
         }
         private void MyProperties_UserControl_Load(object sender, EventArgs e)
         {
-
+            refreshDataGridView();
         }
-
-
-
-        public void showDetails()
-        {
-            con.Open();
-
-            //CHeck THis LIne--->
-            String syntax = $"SELECT * FROM [PROPERTY] WHERE UID='{Form3.UID}'";
-            cmd = new SqlCommand(syntax, con);
-            dr = cmd.ExecuteReader();
-            dr.Read();
-            PID.Text = dr[0].ToString();
-            LOCALITY.Text = dr[1].ToString();
-            UID.Text = dr[2].ToString();
-            ADDRESS.Text = dr[3].ToString();
-            NAME.Text = dr[4].ToString();
-           
-            con.Close();
-        }
-      
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -97,6 +67,35 @@ namespace BuyNSell
             obj.Show();
         }
 
-      
+        private void label22_Click(object sender, EventArgs e)
+        {
+
+        }
+        public void refreshDataGridView()
+        {
+            con.Open();
+            String syntax = $"SELECT PID,PropertyName,Address,City_Name,Locality_Name,AskPrice,Availablity,Type FROM [Property] WHERE UID='{Form3.UID}'";
+            cmd = new SqlCommand(syntax, con);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            con.Close();
+            myPropView.DataSource = dt;
+        }
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.myPropView.Rows[e.RowIndex];
+                String selected_pid = row.Cells["PID"].Value.ToString();
+                if (MessageBox.Show($"Do you want to see property '{row.Cells["PropertyName"].Value.ToString()}'??","Message",MessageBoxButtons.YesNo)==DialogResult.Yes)
+                {
+                    Form7 obj = new Form7(selected_pid);
+                    obj.Show();
+                    refreshDataGridView();
+                    this.myPropView.Refresh();
+                }
+            }
+        }
     }
 }

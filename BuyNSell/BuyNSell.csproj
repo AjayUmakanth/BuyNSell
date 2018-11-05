@@ -94,6 +94,12 @@
     <Compile Include="Form6.Designer.cs">
       <DependentUpon>Form6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form7.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form7.Designer.cs">
+      <DependentUpon>Form7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -129,12 +135,6 @@
     <Compile Include="MyProperties_UserControl.Designer.cs">
       <DependentUpon>MyProperties_UserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="PropertyViewer_UserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PropertyViewer_UserControl.Designer.cs">
-      <DependentUpon>PropertyViewer_UserControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Rent_UserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -159,6 +159,9 @@
     <EmbeddedResource Include="Form6.resx">
       <DependentUpon>Form6.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form7.resx">
+      <DependentUpon>Form7.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyBids_UserControl.resx">
       <DependentUpon>MyBids_UserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,9 +180,6 @@
     </Compile>
     <EmbeddedResource Include="MyProperties_UserControl.resx">
       <DependentUpon>MyProperties_UserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PropertyViewer_UserControl.resx">
-      <DependentUpon>PropertyViewer_UserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rent_UserControl.resx">
       <DependentUpon>Rent_UserControl.cs</DependentUpon>

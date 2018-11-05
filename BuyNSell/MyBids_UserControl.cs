@@ -29,21 +29,39 @@ namespace BuyNSell
         public MyBids_UserControl()
         {
             InitializeComponent();
+            refreshDataGridView();
+        }
+        public void refreshDataGridView()
+        {
+            con.Open();
+            String syntax = $"SELECT PID,BidPrice FROM [Bids] WHERE UID = '{Form3.UID}'";
+            cmd = new SqlCommand(syntax, con);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            con.Close();
+            myBidsView.DataSource = dt;
         }
 
         private void MyBids_UserControl_Load(object sender, EventArgs e)
         {
-
+            refreshDataGridView();
         }
-        public void getBids()
+        private void myPropView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            con.Open();
-            String syntax = $"SELECT * FROM [User] WHERE email='{Form3.UID}'";
-            cmd = new SqlCommand(syntax, con);
-            dr = cmd.ExecuteReader();
-            dr.Read();
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.myBidsView.Rows[e.RowIndex];
+                String selected_pid = row.Cells["PID"].Value.ToString();
+                if (MessageBox.Show($"Do you want to see property '{row.Cells["PropertyName"].Value.ToString()}'??", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Form7 obj = new Form7(selected_pid);
+                    obj.Show();
+                    refreshDataGridView();
+                    this.myBidsView.Refresh();
+                }
 
-            con.Close();
+            }
         }
     }
 }
