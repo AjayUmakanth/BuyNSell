@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-//where is it. thaalu helthini
 namespace BuyNSell
 {
     public partial class Form3 : Form

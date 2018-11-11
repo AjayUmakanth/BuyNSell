@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
 
-
 namespace BuyNSell
 {
     public partial class Form7 : Form
@@ -87,9 +86,16 @@ namespace BuyNSell
             {
                 MemoryStream mstream = new MemoryStream((byte[])img);
                 photo.Image = System.Drawing.Image.FromStream(mstream);
+                photo.SizeMode = PictureBoxSizeMode.StretchImage;
             }
-
-
+         
+           
+            
+        }
+        //this function is to resize image file
+        public static Image resizeImage(Image imgToResize, Size size)
+        {
+            return (Image)(new Bitmap(imgToResize, size));
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -288,7 +294,7 @@ namespace BuyNSell
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+//
         }
 
         private void ROADWIDTH_Click(object sender, EventArgs e)

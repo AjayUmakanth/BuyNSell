@@ -170,13 +170,8 @@ namespace BuyNSell
             }
           
         }
-
-        //this function is to resize image file
-        public static Image resizeImage(Image imgToResize, Size size)
-        {
-            return (Image)(new Bitmap(imgToResize, size));
-        }
-
+     
+     
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -215,8 +210,8 @@ namespace BuyNSell
                 SqlCommand cmd = new SqlCommand(qry3, con);
                 cmd.Parameters.Add("@regYear", SqlDbType.Date).Value = regDate.Value.Date;
                 if (imagePath != null)
+
                 {
-                    
                     cmd.Parameters.Add("@imagePath", imagePath);
                 }
                 else
