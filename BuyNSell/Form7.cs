@@ -51,18 +51,17 @@ namespace BuyNSell
             AVAILABILITY.Text = dr[7].ToString() == "1" ? "Yes" : "No";
             TYPE.Text = dr[8].ToString();
 
-
-            MessageBox.Show("Data1 added successfully");
-
+           
             if (UID.Text.ToString().Equals(Form3.UID))
                 isOwner = true;
-
+            else
+                isOwner = false;
+           
             if (isOwner)
                 button1.Text = "Check Bids";
             else
                 button1.Text = "Bid";
             dr.Close();
-
 
 
             String qry2 = $"Select * from [{TYPE.Text.ToString()}] where PID={selectedPID};";
@@ -299,10 +298,31 @@ namespace BuyNSell
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            
+        }
+        
+    
+    private void GARDEN_Click(object sender, EventArgs e)
+        {
 
         }
 
-        private void GARDEN_Click(object sender, EventArgs e)
+        private void label23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label24_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AVAILABILITY_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label22_Click(object sender, EventArgs e)
         {
 
         }

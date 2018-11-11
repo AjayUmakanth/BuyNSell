@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-
+//where is it. thaalu helthini
 namespace BuyNSell
 {
     public partial class Form3 : Form
     {
-        public static string UID;
+        public  static string  UID;
         
 
         public Form3(String uid)
@@ -23,8 +23,21 @@ namespace BuyNSell
             InitializeComponent();
             contentPanel.Controls.Add(MyProfile_UserControl.Instance);
             MyProfile_UserControl.Instance.Dock = DockStyle.Fill;
-            MyProfile_UserControl.Instance.showDetails();
+            MyProfile_UserControl.Instance.showDetails(UID);
             MyProfile_UserControl.Instance.BringToFront();
+
+            MyProperties_UserControl.Instance.Dock = DockStyle.Fill;
+            MyProperties_UserControl.Instance.refreshDataGridView(UID);
+
+            Buy_UserControl.Instance.Dock = DockStyle.Fill;
+            Buy_UserControl.Instance.refreshDataGridView(UID);
+
+            Rent_UserControl.Instance.Dock = DockStyle.Fill;
+            Rent_UserControl.Instance.refreshDataGridView(UID);
+
+            MyBids_UserControl.Instance.Dock = DockStyle.Fill;
+            MyBids_UserControl.Instance.refreshDataGridView(UID);
+
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -34,12 +47,13 @@ namespace BuyNSell
 
         private void button1_Click(object sender, EventArgs e)
         {
+           
             if(!contentPanel.Controls.Contains(MyProfile_UserControl.Instance))
             {
                 contentPanel.Controls.Add(MyProfile_UserControl.Instance);
                 MyProfile_UserControl.Instance.Dock = DockStyle.Fill;
             }
-            MyProfile_UserControl.Instance.showDetails();
+            MyProfile_UserControl.Instance.showDetails(UID);
             MyProfile_UserControl.Instance.BringToFront();
         }
 
@@ -112,8 +126,10 @@ namespace BuyNSell
             Form1 obj = new Form1();
             obj.Show();
             this.Hide();
-            
-
+           
+             
+           
+            //lets check it first?
         }
     }
 }

@@ -205,10 +205,10 @@
     <EmbeddedResource Include="Buy_UserControl.resx">
       <DependentUpon>Buy_UserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Model1.edmx">
+    <None Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    </None>
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>

@@ -31,7 +31,7 @@ namespace BuyNSell
         public Rent_UserControl()
         {
             InitializeComponent();
-            refreshDataGridView();
+            refreshDataGridView(Form3.UID);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -40,13 +40,13 @@ namespace BuyNSell
         }
         private void Rent_UserControl_Load(object sender, EventArgs e)
         {
-            refreshDataGridView();
+            refreshDataGridView(Form3.UID);
 
         }
-        public void refreshDataGridView()
+        public void refreshDataGridView(string uid)
         {
             con.Open();
-            string syntax = $"SELECT PID,PropertyName,Address,City_Name,Locality_Name,AskPrice,Availablity FROM [Property] WHERE Type='Rent' and UID not in ({Form3.UID})";
+            string syntax = $"SELECT PID,PropertyName,Address,City_Name,Locality_Name,AskPrice,Availablity FROM [Property] WHERE Type='Rent' and UID not in ({uid})";
             cmd = new SqlCommand(syntax, con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -66,7 +66,7 @@ namespace BuyNSell
                 {
                     Form7 obj = new Form7(selected_pid);
                     obj.Show();
-                    refreshDataGridView();
+                    refreshDataGridView(Form3.UID);
                     this.myPropView.Refresh();
                 }
 

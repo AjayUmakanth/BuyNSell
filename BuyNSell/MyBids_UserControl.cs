@@ -31,12 +31,12 @@ namespace BuyNSell
         public MyBids_UserControl()
         {
             InitializeComponent();
-            refreshDataGridView();
+            refreshDataGridView(Form3.UID);
         }
-        public void refreshDataGridView()
+        public void refreshDataGridView(string uid)
         {
-            con.Open();
-            String syntax = $"SELECT [Bids].PID,PropertyName,BidPrice,AskPrice FROM [Bids] ,[Property] WHERE [Bids].UID = '{Form3.UID}' and [Bids].PID= [Property].PID";
+            con.Open();                                                                                                             
+            String syntax = $"SELECT [Bids].PID,PropertyName,BidPrice,AskPrice FROM [Bids] ,[Property] WHERE [Bids].UID = '{uid}' and [Bids].PID= [Property].PID";
             cmd = new SqlCommand(syntax, con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -47,7 +47,7 @@ namespace BuyNSell
 
         private void MyBids_UserControl_Load(object sender, EventArgs e)
         {
-            refreshDataGridView();
+            refreshDataGridView(Form3.UID);
         }
         private void myPropView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -59,7 +59,7 @@ namespace BuyNSell
                 {
                     Form7 obj = new Form7(selected_pid);
                     obj.Show();
-                    refreshDataGridView();
+                    refreshDataGridView(Form3.UID);
                     this.myBidsView.Refresh();
                 }
 
@@ -67,3 +67,5 @@ namespace BuyNSell
         }
     }
 }
+
+

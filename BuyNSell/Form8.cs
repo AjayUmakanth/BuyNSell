@@ -31,7 +31,7 @@ namespace BuyNSell
         {
 
         }
-
+    
         private void button1_Click(object sender, EventArgs e)
         {
             error.Hide();
@@ -47,8 +47,15 @@ namespace BuyNSell
                     con.Close();
                     MessageBox.Show("Your bid added");
                     this.Hide();
+                    MyBids_UserControl.Instance.refreshDataGridView(Form3.UID);
+                    
                 }
             }
+        }
+
+        private void bid_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

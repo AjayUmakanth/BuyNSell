@@ -53,6 +53,7 @@
             this.bid.Name = "bid";
             this.bid.Size = new System.Drawing.Size(114, 20);
             this.bid.TabIndex = 17;
+            this.bid.TextChanged += new System.EventHandler(this.bid_TextChanged);
             // 
             // label2
             // 

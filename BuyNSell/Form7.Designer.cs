@@ -470,60 +470,64 @@
             this.CORNER.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CORNER.Location = new System.Drawing.Point(790, 245);
             this.CORNER.Name = "CORNER";
-            this.CORNER.Size = new System.Drawing.Size(102, 25);
+            this.CORNER.Size = new System.Drawing.Size(110, 25);
             this.CORNER.TabIndex = 146;
-            this.CORNER.Text = "Floor No. :";
+            this.CORNER.Text = "Availability:";
             // 
             // GARDEN
             // 
             this.GARDEN.AutoSize = true;
             this.GARDEN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GARDEN.Location = new System.Drawing.Point(790, 143);
+            this.GARDEN.Location = new System.Drawing.Point(790, 156);
             this.GARDEN.Name = "GARDEN";
-            this.GARDEN.Size = new System.Drawing.Size(135, 25);
+            this.GARDEN.Size = new System.Drawing.Size(78, 25);
             this.GARDEN.TabIndex = 145;
-            this.GARDEN.Text = "No of Rooms :";
+            this.GARDEN.Text = "Corner:";
             this.GARDEN.Click += new System.EventHandler(this.GARDEN_Click);
             // 
             // AVAILABILITY
             // 
             this.AVAILABILITY.AutoSize = true;
             this.AVAILABILITY.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AVAILABILITY.Location = new System.Drawing.Point(790, 196);
+            this.AVAILABILITY.Location = new System.Drawing.Point(789, 196);
             this.AVAILABILITY.Name = "AVAILABILITY";
-            this.AVAILABILITY.Size = new System.Drawing.Size(128, 25);
+            this.AVAILABILITY.Size = new System.Drawing.Size(78, 25);
             this.AVAILABILITY.TabIndex = 144;
-            this.AVAILABILITY.Text = "No of Floors :";
+            this.AVAILABILITY.Text = "Garder:";
+            this.AVAILABILITY.Click += new System.EventHandler(this.AVAILABILITY_Click);
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(669, 245);
+            this.label22.Location = new System.Drawing.Point(660, 245);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(102, 25);
+            this.label22.Size = new System.Drawing.Size(110, 25);
             this.label22.TabIndex = 143;
-            this.label22.Text = "Floor No. :";
+            this.label22.Text = "Availability:";
+            this.label22.Click += new System.EventHandler(this.label22_Click);
             // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(635, 143);
+            this.label23.Location = new System.Drawing.Point(693, 156);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(135, 25);
+            this.label23.Size = new System.Drawing.Size(78, 25);
             this.label23.TabIndex = 142;
-            this.label23.Text = "No of Rooms :";
+            this.label23.Text = "Corner:";
+            this.label23.Click += new System.EventHandler(this.label23_Click);
             // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(644, 196);
+            this.label24.Location = new System.Drawing.Point(687, 196);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(128, 25);
+            this.label24.Size = new System.Drawing.Size(83, 25);
             this.label24.TabIndex = 141;
-            this.label24.Text = "No of Floors :";
+            this.label24.Text = "Garden:";
+            this.label24.Click += new System.EventHandler(this.label24_Click);
             // 
             // Form7
             // 

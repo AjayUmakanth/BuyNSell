@@ -19,6 +19,7 @@ namespace BuyNSell
 
         SqlCommand cmd;
         SqlDataReader dr;
+        public static string UIDMP;
         private static MyProfile_UserControl _instance;
         public static MyProfile_UserControl Instance
         {
@@ -38,10 +39,12 @@ namespace BuyNSell
         private void MyProfile_UserControl_Load(object sender, EventArgs e)
         {
         }
-        public void showDetails()
-        {            
+      // where is this function being called?? the 
+        public void showDetails(string uid)
+        {
+            UIDMP = uid;
             con.Open();
-            String syntax = $"SELECT * FROM [User] WHERE UID='{Form3.UID}'";
+            String syntax = $"SELECT * FROM [User] WHERE UID='{UIDMP}'";
             cmd = new SqlCommand(syntax, con);
             dr = cmd.ExecuteReader();
             dr.Read();

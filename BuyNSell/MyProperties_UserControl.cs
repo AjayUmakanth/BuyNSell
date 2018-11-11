@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+/// <summary>
+/// run it once
+/// </summary>
 namespace BuyNSell
 {
     public partial class MyProperties_UserControl : UserControl
@@ -31,13 +33,13 @@ namespace BuyNSell
         public MyProperties_UserControl()
         {
             InitializeComponent();
-            refreshDataGridView();
+            refreshDataGridView(Form3.UID);
             this.myPropView.Refresh();
         }
         private void MyProperties_UserControl_Load(object sender, EventArgs e)
         {
             this.myPropView.Refresh();
-            refreshDataGridView();
+            refreshDataGridView(Form3.UID);
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -75,10 +77,11 @@ namespace BuyNSell
         {
 
         }
-        public void refreshDataGridView()
+      
+        public void refreshDataGridView(string uid)
         {
             con.Open();
-            String syntax = $"SELECT PID,PropertyName,Address,City_Name,Locality_Name,AskPrice,Availablity,Type FROM [Property] WHERE UID='{Form3.UID}'";
+            String syntax = $"SELECT PID,PropertyName,Address,City_Name,Locality_Name,AskPrice,Availablity,Type FROM [Property] WHERE UID='{uid}'";
             cmd = new SqlCommand(syntax, con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -97,7 +100,7 @@ namespace BuyNSell
                 {
                     Form7 obj = new Form7(selected_pid);
                     obj.Show();
-                    refreshDataGridView();
+                    refreshDataGridView(Form3.UID);
                     this.myPropView.Refresh();
                 }
             }

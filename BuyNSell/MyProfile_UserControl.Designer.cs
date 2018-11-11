@@ -90,7 +90,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(156, 293);
+            this.label5.Location = new System.Drawing.Point(156, 337);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 25);
             this.label5.TabIndex = 4;
@@ -101,7 +101,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(98, 352);
+            this.label6.Location = new System.Drawing.Point(98, 293);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(154, 25);
             this.label6.TabIndex = 5;
@@ -112,7 +112,7 @@
             // 
             this.income.AutoSize = true;
             this.income.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.income.Location = new System.Drawing.Point(276, 352);
+            this.income.Location = new System.Drawing.Point(276, 293);
             this.income.Name = "income";
             this.income.Size = new System.Drawing.Size(154, 25);
             this.income.TabIndex = 11;
@@ -122,7 +122,7 @@
             // 
             this.address.AutoSize = true;
             this.address.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address.Location = new System.Drawing.Point(276, 293);
+            this.address.Location = new System.Drawing.Point(276, 337);
             this.address.Name = "address";
             this.address.Size = new System.Drawing.Size(96, 25);
             this.address.TabIndex = 10;

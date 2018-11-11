@@ -13,8 +13,7 @@ using System.IO;
 namespace BuyNSell
 {
     public partial class Form6 : Form
-    {    //String str="Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\Database3.mdf\";Integrated Security=True;MultipleActiveResultSets=True";
-
+    {
         String str = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"G:\\Matharishwa\\git repos\\BuyNSell\\BuyNSell\\Database3.mdf\"; Integrated Security=True;MultipleActiveResultSets=True";
         string cityName;
         string locName;
@@ -168,7 +167,15 @@ namespace BuyNSell
             {
                 image.Text = dialog.FileName.ToString();
             }
+          
         }
+
+        //this function is to resize image file
+        public static Image resizeImage(Image imgToResize, Size size)
+        {
+            return (Image)(new Bitmap(imgToResize, size));
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -207,7 +214,10 @@ namespace BuyNSell
                 SqlCommand cmd = new SqlCommand(qry3, con);
                 cmd.Parameters.Add("@regYear", SqlDbType.Date).Value = regDate.Value.Date;
                 if (imagePath != null)
+                {
+                    
                     cmd.Parameters.Add("@imagePath", imagePath);
+                }
                 else
                     cmd.Parameters.Add("@imagePath", SqlDbType.VarBinary).Value = DBNull.Value;
                 cmd.ExecuteNonQuery();
@@ -215,16 +225,14 @@ namespace BuyNSell
                 MessageBox.Show("Peoperty Created successfully");
                 dr.Close();
 
-                Form6 obj = new Form6();
+                MyProperties_UserControl.Instance.refreshDataGridView(Form3.UID);
                 this.Hide();
-                obj.Refresh();
-                obj.Show();
             }
             catch(Exception exe)
             {
                 MessageBox.Show(exe.ToString());
             }
-
+            ////u wr
 
 }
 
