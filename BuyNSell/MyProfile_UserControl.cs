@@ -39,7 +39,6 @@ namespace BuyNSell
         private void MyProfile_UserControl_Load(object sender, EventArgs e)
         {
         }
-      // where is this function being called?? the 
         public void showDetails(string uid)
         {
             UIDMP = uid;

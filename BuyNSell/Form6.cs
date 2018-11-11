@@ -192,7 +192,6 @@ namespace BuyNSell
                 String property_name = PName.Text;
                 con = new SqlConnection(str);
                 con.Open();
-
                 String qry1 = $"Insert into property (UID,PropertyName,Address,City_Name,Locality_Name,AskPrice,Availablity,Type) values " +
                     $"({Form3.UID},'{PName.Text}','{Address.Text}','{cities.SelectedItem}','{locName}',{askPrice.Text},{available},'{type}');";
                 SqlDataReader dr = new SqlCommand(qry1, con).ExecuteReader();
@@ -228,7 +227,7 @@ namespace BuyNSell
             {
                 MessageBox.Show(exe.ToString());
             }
-            ////u wr
+          
 
 }
 

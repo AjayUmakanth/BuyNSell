@@ -48,7 +48,7 @@ namespace BuyNSell
                     MessageBox.Show("Your bid added");
                     this.Hide();
                     MyBids_UserControl.Instance.refreshDataGridView(Form3.UID);
-                    
+                    //
                 }
             }
         }

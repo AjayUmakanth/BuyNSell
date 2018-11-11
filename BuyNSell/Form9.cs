@@ -14,18 +14,18 @@ namespace BuyNSell
     public partial class Form9 : Form
     {
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"G:\\Matharishwa\\git repos\\BuyNSell\\BuyNSell\\Database3.mdf\"; Integrated Security=True");
-
         //SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\Database3.mdf\";Integrated Security=True");
         SqlCommand cmd;
 
         public Form9()
         {
             InitializeComponent();
+            refreshDataGridView();
         }
         public void refreshDataGridView()
         {
             con.Open();
-            String syntax = $"SELECT UID,BidPrice FROM [Bids] WHERE PID = '{Form7.selectedPID}'";
+            String syntax = $"SELECT UID,BidPrice FROM [Bids] WHERE PID ={Form7.selectedPID}"; 
             cmd = new SqlCommand(syntax, con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -36,7 +36,17 @@ namespace BuyNSell
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.bidProp.Rows[e.RowIndex];
+                String selected_uid = row.Cells["UID"].Value.ToString();
+                if (MessageBox.Show($"Do you want to see user '{selected_uid}'??", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Form10 obj = new Form10(selected_uid, Form7.selectedPID, row.Cells["BidPrice"].Value.ToString());
+                    obj.Show();
+                 
+                }
+            }
         }
 
         private void Form9_Load(object sender, EventArgs e)

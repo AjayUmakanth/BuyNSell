@@ -45,6 +45,8 @@
             // 
             // bidProp
             // 
+            this.bidProp.AllowUserToAddRows = false;
+            this.bidProp.AllowUserToDeleteRows = false;
             this.bidProp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.bidProp.Location = new System.Drawing.Point(25, 88);
             this.bidProp.Name = "bidProp";

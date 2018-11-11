@@ -47,19 +47,24 @@ namespace BuyNSell
             LOCALITY.Text = dr[4].ToString();
             CITY.Text = dr[5].ToString();
             ASKPRICE.Text = dr[6].ToString();
-            AVAILABILITY.Text = dr[7].ToString() == "1" ? "Yes" : "No";
+            AVAILABILITY.Text = dr[7].ToString() == "True" ? "Yes" : "No";
             TYPE.Text = dr[8].ToString();
+            if (AVAILABILITY.Text.Equals("No"))
+                button1.Hide();
+            else
+            {
 
-           
-            if (UID.Text.ToString().Equals(Form3.UID))
-                isOwner = true;
-            else
-                isOwner = false;
-           
-            if (isOwner)
-                button1.Text = "Check Bids";
-            else
-                button1.Text = "Bid";
+                if (UID.Text.ToString().Equals(Form3.UID))
+                {
+                    isOwner = true;
+                    button1.Text = "Check Bids";
+                }
+                else
+                { 
+                    isOwner = false;
+                    button1.Text = "Bid";
+                }
+            }
             dr.Close();
 
 
