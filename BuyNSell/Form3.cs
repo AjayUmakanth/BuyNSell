@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace BuyNSell
 {
     public partial class Form3 : Form
     {
-        public static String UID;
+        public static string UID;
+        
+
         public Form3(String uid)
         {
             UID = uid;
@@ -103,11 +107,13 @@ namespace BuyNSell
         }
 
         private void logOut_Click(object sender, EventArgs e)
-        {
+        {   
             UID = "";
             Form1 obj = new Form1();
             obj.Show();
             this.Hide();
+            
+
         }
     }
 }
