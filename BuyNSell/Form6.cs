@@ -13,13 +13,11 @@ using System.IO;
 namespace BuyNSell
 {
     public partial class Form6 : Form
-    {   
-        String str = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"G:\\Matharishwa\\git repos\\BuyNSell\\BuyNSell\\Database3.mdf\"; Integrated Security=True;MultipleActiveResultSets=True";
-        //String str ="Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\Database3.mdf\";Integrated Security=True");
+    {
+        SqlConnection con = new SqlConnection(Form1.connectionString);
         string cityName;
         string locName;
         string type;
-        SqlConnection con;
         public Form6()
         {
             InitializeComponent();
@@ -34,7 +32,6 @@ namespace BuyNSell
             try
             {
                 locality.Items.Clear();
-                con = new SqlConnection(str);
                 String qry = $"Select Name from [Locality] where City_Name='{cityName}'";
                 con.Open();
                 SqlDataReader dr = new SqlCommand(qry, con).ExecuteReader();
@@ -58,7 +55,6 @@ namespace BuyNSell
         {
              try
             {
-                con = new SqlConnection(str);
                 String qry = "Select Name from [City]";
                 con.Open();
                 SqlDataReader dr = new SqlCommand(qry, con).ExecuteReader();
@@ -190,7 +186,6 @@ namespace BuyNSell
                 }
 
                 String property_name = PName.Text;
-                con = new SqlConnection(str);
                 con.Open();
                 String qry1 = $"Insert into property (UID,PropertyName,Address,City_Name,Locality_Name,AskPrice,Availablity,Type) values " +
                     $"({Form3.UID},'{PName.Text}','{Address.Text}','{cities.SelectedItem}','{locName}',{askPrice.Text},{available},'{type}');";

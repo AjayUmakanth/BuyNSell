@@ -12,11 +12,8 @@ using System.Data.SqlClient;
 namespace BuyNSell
 {
     public partial class MyProfile_UserControl : UserControl
-    {   
-        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"G:\\Matharishwa\\git repos\\BuyNSell\\BuyNSell\\Database3.mdf\"; Integrated Security=True");
-
-        //  SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\Database3.mdf\";Integrated Security=True");
-
+    {
+        SqlConnection con = new SqlConnection(Form1.connectionString);
         SqlCommand cmd;
         SqlDataReader dr;
         public static string UIDMP;

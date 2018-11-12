@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 /// <summary>
-/// run it once
+/// run it onced
 /// </summary>
 namespace BuyNSell
 {

@@ -13,9 +13,7 @@ namespace BuyNSell
 {
     public partial class Rent_UserControl : UserControl
     {
-        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"G:\\Matharishwa\\git repos\\BuyNSell\\BuyNSell\\Database3.mdf\"; Integrated Security=True");
-
-        //SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\Database3.mdf\";Integrated Security=True");
+        SqlConnection con = new SqlConnection(Form1.connectionString);
         SqlCommand cmd;
         SqlDataReader dr;
         private static Rent_UserControl _instance;

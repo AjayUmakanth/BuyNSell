@@ -14,10 +14,7 @@ namespace BuyNSell
 {
     public partial class Form7 : Form
     {
-        String str = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"G:\\Matharishwa\\git repos\\BuyNSell\\BuyNSell\\Database3.mdf\"; Integrated Security=True;MultipleActiveResultSets=True";
-
-        //String str = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\Database3.mdf\";Integrated Security=True;MultipleActiveResultSets=True";
-        SqlConnection con;
+        SqlConnection con = new SqlConnection(Form1.connectionString);
         public static string selectedPID = "";
         static Boolean isOwner = false;
         public Form7(string pid)
@@ -34,7 +31,6 @@ namespace BuyNSell
         public void setValues()
         {
 
-            con = new SqlConnection(str);
             con.Open();
 
             String qry1 = $"Select * from [Property] where PID={selectedPID};";
