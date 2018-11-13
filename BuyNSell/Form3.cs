@@ -37,6 +37,16 @@ namespace BuyNSell
             MyBids_UserControl.Instance.Dock = DockStyle.Fill;
             MyBids_UserControl.Instance.refreshDataGridView(UID);
 
+            Sold_UserControl.Instance.Dock = DockStyle.Fill;
+            Sold_UserControl.Instance.refreshDataGridView(UID);
+
+            Bought_UserControl.Instance.Dock = DockStyle.Fill;
+            Bought_UserControl.Instance.refreshDataGridView(UID);
+
+        }
+        public void showDetails()
+        {
+
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -74,11 +84,6 @@ namespace BuyNSell
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            if (!contentPanel.Controls.Contains(MyProperties_UserControl.Instance))
-            {
-                contentPanel.Controls.Add(MyProperties_UserControl.Instance);
-                MyProperties_UserControl.Instance.Dock = DockStyle.Fill;
-            }
             contentPanel.Controls.Add(MyProperties_UserControl.Instance);
             MyProperties_UserControl.Instance.Dock = DockStyle.Fill;
             MyProperties_UserControl.Instance.BringToFront();
@@ -129,6 +134,27 @@ namespace BuyNSell
              
            
             //lets check it first?
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (!contentPanel.Controls.Contains(Bought_UserControl.Instance))
+            {
+                contentPanel.Controls.Add(Bought_UserControl.Instance);
+                Bought_UserControl.Instance.Dock = DockStyle.Fill;
+            }
+            Bought_UserControl.Instance.BringToFront();
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (!contentPanel.Controls.Contains(Sold_UserControl.Instance))
+            {
+                contentPanel.Controls.Add(Sold_UserControl.Instance);
+                Sold_UserControl.Instance.Dock = DockStyle.Fill;
+            }
+            Sold_UserControl.Instance.BringToFront();
         }
     }
 }

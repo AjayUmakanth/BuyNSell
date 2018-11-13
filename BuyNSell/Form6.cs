@@ -25,6 +25,79 @@ namespace BuyNSell
             locality.DropDownStyle = ComboBoxStyle.DropDownList;
             Buy_Rent.DropDownStyle = ComboBoxStyle.DropDownList;
         }
+        public void showData(string selectedPID)
+        {
+            String qry2 = $"Select * from Property where PID='{selectedPID}';";
+            con.Open();
+            SqlDataReader dr = new SqlCommand(qry2, con).ExecuteReader();
+            dr.Read();
+            PName.Text = dr[2].ToString();
+            Address.Text = dr[3].ToString();
+            cities.Text = dr[5].ToString();
+            locality.Text = dr[4].ToString();
+            askPrice.Text = dr[6].ToString();
+            availability.Checked =dr[7].ToString()=="True"?true:false;
+            Buy_Rent.SelectedIndex = Buy_Rent.FindString(dr[8].ToString());
+            con.Close();
+
+        }
+        private void addData()
+        {
+
+            byte[] imagePath = null;
+            int available = (availability.Checked) ? 1 : 0;
+            int gard = (garden.Checked) ? 1 : 0;
+            int corn = (corner.Checked) ? 1 : 0;
+            String pidVal = "";
+
+            try
+            {
+                if (image.Text != "")
+                {
+                    FileStream stream = new FileStream(image.Text, FileMode.Open, FileAccess.Read);
+                    imagePath = new BinaryReader(stream).ReadBytes((int)stream.Length);
+                }
+
+                String property_name = PName.Text;
+                con.Open();
+                String qry1 = $"Insert into property (UID,PropertyName,Address,City_Name,Locality_Name,AskPrice,Availablity,Type) values " +
+                    $"({Form3.UID},'{PName.Text}','{Address.Text}','{cities.SelectedItem}','{locName}',{askPrice.Text},{available},'{type}');";
+                SqlDataReader dr = new SqlCommand(qry1, con).ExecuteReader();
+
+
+                String qry2 = $"Select PID from Property where UID='{Form3.UID}'and PropertyName='{PName.Text}';";
+                dr = new SqlCommand(qry2, con).ExecuteReader();
+                dr.Read();
+                pidVal = dr[0].ToString();
+
+
+                dr.Close();
+                String qry3 = $"Insert into {type} (PID,Area,Rooms,NoFloors,Floor,Parking,Road,RegYear,Garden,Corner,Additional,Photo) " +
+                   $"values ({pidVal},{area.Text},{rooms.Text},{noFloor.Text},{floorNo.Text},{parking.Text},{roads.Text},@regYear,{gard},{corn},'{additional.Text}',@imagePath);";
+                SqlCommand cmd = new SqlCommand(qry3, con);
+                cmd.Parameters.Add("@regYear", SqlDbType.Date).Value = regDate.Value.Date;
+                if (imagePath != null)
+
+                {
+                    cmd.Parameters.Add("@imagePath", imagePath);
+                }
+                else
+                    cmd.Parameters.Add("@imagePath", SqlDbType.VarBinary).Value = DBNull.Value;
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Peoperty Created successfully");
+                dr.Close();
+
+                MyProperties_UserControl.Instance.refreshDataGridView(Form3.UID);
+                this.Hide();
+            }
+            catch (Exception exe)
+            {
+                MessageBox.Show(exe.ToString());
+            }
+
+
+        }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
@@ -63,6 +136,7 @@ namespace BuyNSell
                     cities.Items.Add(dr[0].ToString());
                 }
                 dr.Close();
+                con.Close();
             }
             catch (SqlException x)
             {
@@ -171,60 +245,9 @@ namespace BuyNSell
 
         private void button1_Click(object sender, EventArgs e)
         {
-            byte[] imagePath = null;
-            int available = (availability.Checked) ? 1 : 0;
-            int gard = (garden.Checked) ? 1 : 0;
-            int corn = (corner.Checked) ? 1 : 0;
-            String pidVal = "";
-
-            try
-            {
-                if (image.Text != "")
-                {
-                    FileStream stream = new FileStream(image.Text, FileMode.Open, FileAccess.Read);
-                    imagePath = new BinaryReader(stream).ReadBytes((int)stream.Length);
-                }
-
-                String property_name = PName.Text;
-                con.Open();
-                String qry1 = $"Insert into property (UID,PropertyName,Address,City_Name,Locality_Name,AskPrice,Availablity,Type) values " +
-                    $"({Form3.UID},'{PName.Text}','{Address.Text}','{cities.SelectedItem}','{locName}',{askPrice.Text},{available},'{type}');";
-                SqlDataReader dr = new SqlCommand(qry1, con).ExecuteReader();
-
-
-                String qry2 = $"Select PID from Property where UID='{Form3.UID}'and PropertyName='{PName.Text}';";
-                dr = new SqlCommand(qry2, con).ExecuteReader();
-                dr.Read();
-                pidVal = dr[0].ToString();
-
-
-                dr.Close();
-                String qry3 = $"Insert into {type} (PID,Area,Rooms,NoFloors,Floor,Parking,Road,RegYear,Garden,Corner,Additional,Photo) " +
-                   $"values ({pidVal},{area.Text},{rooms.Text},{noFloor.Text},{floorNo.Text},{parking.Text},{roads.Text},@regYear,{gard},{corn},'{additional.Text}',@imagePath);";
-                SqlCommand cmd = new SqlCommand(qry3, con);
-                cmd.Parameters.Add("@regYear", SqlDbType.Date).Value = regDate.Value.Date;
-                if (imagePath != null)
-
-                {
-                    cmd.Parameters.Add("@imagePath", imagePath);
-                }
-                else
-                    cmd.Parameters.Add("@imagePath", SqlDbType.VarBinary).Value = DBNull.Value;
-                cmd.ExecuteNonQuery();
-
-                MessageBox.Show("Peoperty Created successfully");
-                dr.Close();
-
-                MyProperties_UserControl.Instance.refreshDataGridView(Form3.UID);
-                this.Hide();
-            }
-            catch(Exception exe)
-            {
-                MessageBox.Show(exe.ToString());
-            }
-          
-
-}
+            addData();
+            
+        }
 
         private void label2_Click(object sender, EventArgs e)
         {
