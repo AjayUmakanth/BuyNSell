@@ -75,15 +75,12 @@ namespace BuyNSell
                 dr = new SqlCommand(qry3, con).ExecuteReader();
                 dr.Close();
                 MessageBox.Show("querry3 executed");
-
-
-
                 dr.Close();
                 con.Close();
                 MessageBox.Show("Transaction completed successfully");
                 MyProperties_UserControl.Instance.refreshDataGridView(Form3.UID);
 
-
+                
             }
         }
     }
