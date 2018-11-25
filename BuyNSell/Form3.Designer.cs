@@ -30,8 +30,10 @@
         {
             this.contentPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.logOut = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.logOut = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -55,6 +57,8 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.panel1.BackgroundImage = global::BuyNSell.Properties.Resources.back1;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.button6);
+            this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.logOut);
             this.panel1.Controls.Add(this.button3);
@@ -68,18 +72,31 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // logOut
+            // button6
             // 
-            this.logOut.BackColor = System.Drawing.Color.Transparent;
-            this.logOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logOut.Location = new System.Drawing.Point(-3, 321);
-            this.logOut.Name = "logOut";
-            this.logOut.Size = new System.Drawing.Size(120, 68);
-            this.logOut.TabIndex = 2;
-            this.logOut.Text = "Log Out";
-            this.logOut.UseVisualStyleBackColor = false;
-            this.logOut.Click += new System.EventHandler(this.logOut_Click);
+            this.button6.BackColor = System.Drawing.Color.Transparent;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(-3, 388);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(120, 68);
+            this.button6.TabIndex = 4;
+            this.button6.Text = "Sold Properties";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.Transparent;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(-3, 324);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(120, 68);
+            this.button7.TabIndex = 5;
+            this.button7.Text = "Bought Properties";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button5
             // 
@@ -93,6 +110,19 @@
             this.button5.Text = "Rent";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // logOut
+            // 
+            this.logOut.BackColor = System.Drawing.Color.Transparent;
+            this.logOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logOut.Location = new System.Drawing.Point(-3, 452);
+            this.logOut.Name = "logOut";
+            this.logOut.Size = new System.Drawing.Size(120, 68);
+            this.logOut.TabIndex = 2;
+            this.logOut.Text = "Log Out";
+            this.logOut.UseVisualStyleBackColor = false;
+            this.logOut.Click += new System.EventHandler(this.logOut_Click);
             // 
             // button3
             // 
@@ -171,5 +201,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel contentPanel;
         private System.Windows.Forms.Button logOut;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
     }
 }

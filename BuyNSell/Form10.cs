@@ -14,8 +14,8 @@ namespace BuyNSell
     public partial class Form10 : Form
     {
 
-        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"G:\\Matharishwa\\git repos\\BuyNSell\\BuyNSell\\Database3.mdf\"; Integrated Security=True");
-        //  SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\Database3.mdf\";Integrated Security=True");
+        SqlConnection con = new SqlConnection(Form1.connectionString);
+       
         public static string UIDMP;
         public static string PIDMP;
         public static string price;

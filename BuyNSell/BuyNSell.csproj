@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bought_UserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Bought_UserControl.Designer.cs">
+      <DependentUpon>Bought_UserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,15 @@
     <Compile Include="Buy_UserControl.Designer.cs">
       <DependentUpon>Buy_UserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sold_UserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sold_UserControl.Designer.cs">
+      <DependentUpon>Sold_UserControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Bought_UserControl.resx">
+      <DependentUpon>Bought_UserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Buy_UserControl.resx">
       <DependentUpon>Buy_UserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sold_UserControl.resx">
+      <DependentUpon>Sold_UserControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

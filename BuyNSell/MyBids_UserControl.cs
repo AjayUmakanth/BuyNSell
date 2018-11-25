@@ -13,9 +13,7 @@ namespace BuyNSell
 {
     public partial class MyBids_UserControl : UserControl
     {
-        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"G:\\Matharishwa\\git repos\\BuyNSell\\BuyNSell\\Database3.mdf\"; Integrated Security=True");
-        
-      //  SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\Database3.mdf\";Integrated Security=True");
+        SqlConnection con = new SqlConnection(Form1.connectionString);
         SqlCommand cmd;
         SqlDataReader dr;
         private static MyBids_UserControl _instance;
@@ -64,6 +62,11 @@ namespace BuyNSell
                 }
 
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

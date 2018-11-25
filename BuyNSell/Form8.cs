@@ -13,9 +13,7 @@ namespace BuyNSell
 {
     public partial class Form8 : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"G:\\Matharishwa\\git repos\\BuyNSell\\BuyNSell\\Database3.mdf\"; Integrated Security=True");
-
-        //SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\Database3.mdf\";Integrated Security=True");
+        SqlConnection con = new SqlConnection(Form1.connectionString);
 
         public Form8()
         {
@@ -45,7 +43,7 @@ namespace BuyNSell
                     String qry1 = $"Insert into [Bids] (UID,PID,BidPrice) values ({Form3.UID},{Form7.selectedPID},{bid.Text});";
                     SqlDataReader dr = new SqlCommand(qry1, con).ExecuteReader();
                     con.Close();
-                    MessageBox.Show("Your bid added");
+                    MessageBox.Show("Your bid is added!!");
                     this.Hide();
                     MyBids_UserControl.Instance.refreshDataGridView(Form3.UID);
                     //

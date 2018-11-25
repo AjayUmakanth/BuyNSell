@@ -70,6 +70,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.edit = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.photo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -417,9 +418,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(698, 516);
+            this.button1.Location = new System.Drawing.Point(698, 503);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(240, 52);
+            this.button1.Size = new System.Drawing.Size(178, 50);
             this.button1.TabIndex = 101;
             this.button1.Text = "Back";
             this.button1.UseVisualStyleBackColor = true;
@@ -468,32 +469,33 @@
             // 
             this.CORNER.AutoSize = true;
             this.CORNER.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CORNER.Location = new System.Drawing.Point(790, 245);
+            this.CORNER.Location = new System.Drawing.Point(796, 156);
             this.CORNER.Name = "CORNER";
-            this.CORNER.Size = new System.Drawing.Size(110, 25);
+            this.CORNER.Size = new System.Drawing.Size(67, 25);
             this.CORNER.TabIndex = 146;
-            this.CORNER.Text = "Availability:";
+            this.CORNER.Text = "corner";
+            this.CORNER.Click += new System.EventHandler(this.CORNER_Click);
             // 
             // GARDEN
             // 
             this.GARDEN.AutoSize = true;
             this.GARDEN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GARDEN.Location = new System.Drawing.Point(790, 156);
+            this.GARDEN.Location = new System.Drawing.Point(790, 196);
             this.GARDEN.Name = "GARDEN";
-            this.GARDEN.Size = new System.Drawing.Size(78, 25);
+            this.GARDEN.Size = new System.Drawing.Size(73, 25);
             this.GARDEN.TabIndex = 145;
-            this.GARDEN.Text = "Corner:";
+            this.GARDEN.Text = "garden";
             this.GARDEN.Click += new System.EventHandler(this.GARDEN_Click);
             // 
             // AVAILABILITY
             // 
             this.AVAILABILITY.AutoSize = true;
             this.AVAILABILITY.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AVAILABILITY.Location = new System.Drawing.Point(789, 196);
+            this.AVAILABILITY.Location = new System.Drawing.Point(790, 245);
             this.AVAILABILITY.Name = "AVAILABILITY";
-            this.AVAILABILITY.Size = new System.Drawing.Size(78, 25);
+            this.AVAILABILITY.Size = new System.Drawing.Size(115, 25);
             this.AVAILABILITY.TabIndex = 144;
-            this.AVAILABILITY.Text = "Garder:";
+            this.AVAILABILITY.Text = "Availabilitty:";
             this.AVAILABILITY.Click += new System.EventHandler(this.AVAILABILITY_Click);
             // 
             // label22
@@ -529,11 +531,24 @@
             this.label24.Text = "Garden:";
             this.label24.Click += new System.EventHandler(this.label24_Click);
             // 
+            // edit
+            // 
+            this.edit.AutoSize = true;
+            this.edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.edit.Location = new System.Drawing.Point(693, 556);
+            this.edit.Name = "edit";
+            this.edit.Size = new System.Drawing.Size(43, 25);
+            this.edit.TabIndex = 147;
+            this.edit.TabStop = true;
+            this.edit.Text = "edit";
+            this.edit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.edit_LinkClicked);
+            // 
             // Form7
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(959, 598);
+            this.Controls.Add(this.edit);
             this.Controls.Add(this.CORNER);
             this.Controls.Add(this.GARDEN);
             this.Controls.Add(this.AVAILABILITY);
@@ -629,5 +644,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.LinkLabel edit;
     }
 }

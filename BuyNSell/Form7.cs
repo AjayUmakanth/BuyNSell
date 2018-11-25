@@ -14,10 +14,7 @@ namespace BuyNSell
 {
     public partial class Form7 : Form
     {
-        String str = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"G:\\Matharishwa\\git repos\\BuyNSell\\BuyNSell\\Database3.mdf\"; Integrated Security=True;MultipleActiveResultSets=True";
-
-        //String str = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\Database3.mdf\";Integrated Security=True;MultipleActiveResultSets=True";
-        SqlConnection con;
+        SqlConnection con = new SqlConnection(Form1.connectionString);
         public static string selectedPID = "";
         static Boolean isOwner = false;
         public Form7(string pid)
@@ -34,7 +31,6 @@ namespace BuyNSell
         public void setValues()
         {
 
-            con = new SqlConnection(str);
             con.Open();
 
             String qry1 = $"Select * from [Property] where PID={selectedPID};";
@@ -49,6 +45,8 @@ namespace BuyNSell
             ASKPRICE.Text = dr[6].ToString();
             AVAILABILITY.Text = dr[7].ToString() == "True" ? "Yes" : "No";
             TYPE.Text = dr[8].ToString();
+            if (!UID.Text.ToString().Equals(Form3.UID))
+                edit.Hide();
             if (AVAILABILITY.Text.Equals("No"))
                 button1.Hide();
             else
@@ -78,8 +76,8 @@ namespace BuyNSell
             PARKING.Text = dr[5].ToString();
             ROADWIDTH.Text = dr[6].ToString();
             REGDATE.Text = dr[7].ToString().Substring(0,10);
-            GARDEN.Text = dr[8].ToString() == "1" ? "Present" : "Absent";
-            CORNER.Text = dr[9].ToString() == "1" ? "Yes" : "No";
+            GARDEN.Text = dr[8].ToString() == "True" ? "Present" : "Absent";
+            CORNER.Text = dr[9].ToString() == "True" ? "Yes" : "No";
             ADDITIONAL.Text = dr[10].ToString();
             var img = (dr[11]);  
 
@@ -336,6 +334,18 @@ namespace BuyNSell
         private void label22_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void CORNER_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void edit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form6 obj = new Form6();
+            obj.showData(selectedPID);
+            obj.Show();
         }
     }
 }
