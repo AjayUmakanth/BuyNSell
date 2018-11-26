@@ -346,6 +346,7 @@ namespace BuyNSell
             Form6 obj = new Form6();
             obj.showData(selectedPID);
             obj.Show();
+            this.Hide();
         }
     }
 }

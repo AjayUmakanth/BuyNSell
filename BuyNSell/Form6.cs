@@ -18,28 +18,68 @@ namespace BuyNSell
         string cityName;
         string locName;
         string type;
+        string selectedpid;
         public Form6()
         {
             InitializeComponent();
             cities.DropDownStyle = ComboBoxStyle.DropDownList;
             locality.DropDownStyle = ComboBoxStyle.DropDownList;
             Buy_Rent.DropDownStyle = ComboBoxStyle.DropDownList;
+            editOptions(false);
+        }
+        public void editOptions(Boolean isEdit)
+        {
+            if(isEdit)
+            {
+                cities.Hide();
+                citiesLabel.Show();
+                Buy_Rent.Hide();
+                Buy_RentText.Show();
+                locality.Hide();
+                localityText.Show();
+                button1.Text = "Save";
+            }
+            else
+            {
+                cities.Show();
+                citiesLabel.Hide();
+                Buy_Rent.Show();
+                Buy_RentText.Hide();
+                locality.Show();
+                localityText.Hide();
+                button1.Text = "Create";
+            }
         }
         public void showData(string selectedPID)
         {
-            String qry2 = $"Select * from Property where PID='{selectedPID}';";
+            editOptions(true);
+            String qry1 = $"Select * from Property where PID='{selectedPID}';";
             con.Open();
-            SqlDataReader dr = new SqlCommand(qry2, con).ExecuteReader();
+            SqlDataReader dr = new SqlCommand(qry1, con).ExecuteReader();
             dr.Read();
             PName.Text = dr[2].ToString();
             Address.Text = dr[3].ToString();
-            cities.Text = dr[5].ToString();
-            locality.Text = dr[4].ToString();
+            citiesLabel.Text = dr[5].ToString();
+            localityText.Text = dr[4].ToString();
             askPrice.Text = dr[6].ToString();
             availability.Checked =dr[7].ToString()=="True"?true:false;
-            Buy_Rent.SelectedIndex = Buy_Rent.FindString(dr[8].ToString());
+            Buy_RentText.Text = dr[8].ToString();
+            String qry2 = $"Select * from {Buy_RentText.Text} where PID='{selectedPID}'";
+            dr.Close();
+            dr = new SqlCommand(qry2, con).ExecuteReader();
+            dr.Read();
+            area.Text = dr[1].ToString();
+            rooms.Text = dr[2].ToString();
+            noFloor.Text = dr[3].ToString();
+            floorNo.Text = dr[4].ToString();
+            parking.Text = dr[5].ToString();
+            roads.Text = dr[6].ToString();
+            regDate.Text = dr[7].ToString();
+            garden.Checked = dr[8].ToString() == "True" ? true : false;
+            corner.Checked = dr[9].ToString() == "True" ? true : false;
+            additional.Text = dr[10].ToString();
+            selectedpid = selectedPID;
             con.Close();
-
         }
         private void addData()
         {
@@ -98,6 +138,52 @@ namespace BuyNSell
 
 
         }
+        private void saveData()
+        {
+
+            byte[] imagePath = null;
+            int available = (availability.Checked) ? 1 : 0;
+            int gard = (garden.Checked) ? 1 : 0;
+            int corn = (corner.Checked) ? 1 : 0;
+            String pidVal = "";
+
+                if (image.Text != "")
+                {
+                    FileStream stream = new FileStream(image.Text, FileMode.Open, FileAccess.Read);
+                    imagePath = new BinaryReader(stream).ReadBytes((int)stream.Length);
+                }
+
+                String property_name = PName.Text;
+                con.Open();
+                String qry1 = $"Update property set PropertyName='{PName.Text}',Address='{Address.Text}',AskPrice={askPrice.Text},Availablity={available} where PID={selectedpid} ;"; 
+                SqlDataReader dr = new SqlCommand(qry1, con).ExecuteReader();
+                dr.Close();
+                String qry2 = $"Update {Buy_RentText.Text} set Area={area.Text},Rooms={rooms.Text},NoFloors={noFloor.Text},Floor={floorNo.Text},Parking={parking.Text}," +
+                    $"Road={roads.Text},RegYear=@regYear,Garden={gard},Corner={corn},Additional='{additional.Text}' where PID={selectedpid}; ";
+                if (imagePath != null)
+                {
+                    qry2 = $"Update {Buy_RentText.Text} set Area={area.Text},Rooms={rooms.Text},NoFloors={noFloor.Text},Floor={floorNo.Text},Parking={parking.Text}," +
+                       $"Road={roads.Text},RegYear=@regYear,Garden={gard},Corner={corn},Additional={additional.Text},Photo=@imagePath where PID={selectedpid}; ";
+
+                }
+                SqlCommand cmd = new SqlCommand(qry2, con);
+                cmd.Parameters.Add("@regYear", SqlDbType.Date).Value = regDate.Value.Date;
+                if (imagePath != null)
+                    cmd.Parameters.Add("@imagePath", imagePath);
+
+                cmd.ExecuteReader();
+                
+                MessageBox.Show("Changes Saved successfully");
+                dr.Close();
+
+                MyProperties_UserControl.Instance.refreshDataGridView(Form3.UID);
+                Form7 obj = new Form7(selectedpid);
+                obj.Show();
+                this.Hide();
+            
+
+        }
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;
@@ -245,7 +331,10 @@ namespace BuyNSell
 
         private void button1_Click(object sender, EventArgs e)
         {
-            addData();
+            if (button1.Text.Equals("Create"))
+                addData();
+            else
+                saveData();
             
         }
 
@@ -270,6 +359,26 @@ namespace BuyNSell
         }
 
         private void floorNo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click_3(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void garden_CheckedChanged(object sender, EventArgs e)
         {
 
         }

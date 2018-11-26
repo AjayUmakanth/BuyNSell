@@ -65,6 +65,9 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.Buy_Rent = new System.Windows.Forms.ComboBox();
+            this.citiesLabel = new System.Windows.Forms.Label();
+            this.localityText = new System.Windows.Forms.Label();
+            this.Buy_RentText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -350,6 +353,7 @@
             this.garden.TabIndex = 32;
             this.garden.Text = "Garden";
             this.garden.UseVisualStyleBackColor = true;
+            this.garden.CheckedChanged += new System.EventHandler(this.garden_CheckedChanged);
             // 
             // image
             // 
@@ -421,11 +425,47 @@
             this.Buy_Rent.TabIndex = 39;
             this.Buy_Rent.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
+            // citiesLabel
+            // 
+            this.citiesLabel.AutoSize = true;
+            this.citiesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.citiesLabel.Location = new System.Drawing.Point(106, 99);
+            this.citiesLabel.Name = "citiesLabel";
+            this.citiesLabel.Size = new System.Drawing.Size(43, 20);
+            this.citiesLabel.TabIndex = 40;
+            this.citiesLabel.Text = "City :";
+            this.citiesLabel.Click += new System.EventHandler(this.label6_Click_2);
+            // 
+            // localityText
+            // 
+            this.localityText.AutoSize = true;
+            this.localityText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.localityText.Location = new System.Drawing.Point(106, 151);
+            this.localityText.Name = "localityText";
+            this.localityText.Size = new System.Drawing.Size(70, 20);
+            this.localityText.TabIndex = 41;
+            this.localityText.Text = "Locality :";
+            this.localityText.Click += new System.EventHandler(this.label6_Click_3);
+            // 
+            // Buy_RentText
+            // 
+            this.Buy_RentText.AutoSize = true;
+            this.Buy_RentText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Buy_RentText.Location = new System.Drawing.Point(106, 365);
+            this.Buy_RentText.Name = "Buy_RentText";
+            this.Buy_RentText.Size = new System.Drawing.Size(83, 20);
+            this.Buy_RentText.TabIndex = 42;
+            this.Buy_RentText.Text = "Buy/Rent :";
+            this.Buy_RentText.Click += new System.EventHandler(this.label9_Click_1);
+            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(847, 494);
+            this.Controls.Add(this.Buy_RentText);
+            this.Controls.Add(this.localityText);
+            this.Controls.Add(this.citiesLabel);
             this.Controls.Add(this.Buy_Rent);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label16);
@@ -510,5 +550,8 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox Buy_Rent;
+        private System.Windows.Forms.Label citiesLabel;
+        private System.Windows.Forms.Label localityText;
+        private System.Windows.Forms.Label Buy_RentText;
     }
 }
