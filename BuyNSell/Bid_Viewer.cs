@@ -43,12 +43,17 @@ namespace BuyNSell
                 {
                     UserViewer obj = new UserViewer(selected_uid, Property_Viewer.selectedPID, row.Cells["BidPrice"].Value.ToString());
                     obj.Show();
-                 
+                    this.Close();
                 }
             }
         }
 
         private void Form9_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

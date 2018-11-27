@@ -458,7 +458,7 @@
             this.Buy_RentText.Text = "Buy/Rent :";
             this.Buy_RentText.Click += new System.EventHandler(this.label9_Click_1);
             // 
-            // Form6
+            // Property_Enter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -503,8 +503,8 @@
             this.Controls.Add(this.cities);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form6";
-            this.Text = "Availability";
+            this.Name = "Property_Enter";
+            this.Text = "BuyNSell";
             this.Load += new System.EventHandler(this.Form6_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

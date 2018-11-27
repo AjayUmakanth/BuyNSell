@@ -37,11 +37,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(34, 26);
+            this.label1.Location = new System.Drawing.Point(16, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(218, 29);
+            this.label1.Size = new System.Drawing.Size(249, 29);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Bids on this proerty";
+            this.label1.Text = "Offers on this property";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // bidProp
             // 
@@ -54,15 +55,15 @@
             this.bidProp.TabIndex = 1;
             this.bidProp.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // Form9
+            // Bid_Viewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 450);
             this.Controls.Add(this.bidProp);
             this.Controls.Add(this.label1);
-            this.Name = "Form9";
-            this.Text = "Form9";
+            this.Name = "Bid_Viewer";
+            this.Text = "BuyNSell";
             this.Load += new System.EventHandler(this.Form9_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bidProp)).EndInit();
             this.ResumeLayout(false);

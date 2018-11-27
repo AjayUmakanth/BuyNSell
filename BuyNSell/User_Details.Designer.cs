@@ -146,7 +146,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(120, 68);
             this.button4.TabIndex = 3;
-            this.button4.Text = "MyBids";
+            this.button4.Text = "My Offers";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -176,15 +176,15 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form3
+            // User_Details
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 520);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.panel1);
-            this.Name = "Form3";
-            this.Text = "Form3";
+            this.Name = "User_Details";
+            this.Text = "BuyNSell";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

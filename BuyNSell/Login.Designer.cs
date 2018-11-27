@@ -133,7 +133,7 @@
             this.label5.Visible = false;
             this.label5.Click += new System.EventHandler(this.label5_Click_1);
             // 
-            // Form1
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -148,8 +148,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Name = "Form1";
-            this.Text = "below one";
+            this.Name = "Login";
+            this.Text = "BuyNSell";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

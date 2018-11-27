@@ -55,12 +55,12 @@ namespace BuyNSell
                 if (UID.Text.ToString().Equals(User_Details.UID))
                 {
                     isOwner = true;
-                    button1.Text = "Check Bids";
+                    button1.Text = "Check Offers";
                 }
                 else
                 { 
                     isOwner = false;
-                    button1.Text = "Bid";
+                    button1.Text = "Enter an Offer";
                 }
             }
             dr.Close();

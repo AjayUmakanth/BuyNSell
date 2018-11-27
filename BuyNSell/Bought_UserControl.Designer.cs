@@ -40,6 +40,7 @@
             this.boughtView.Name = "boughtView";
             this.boughtView.Size = new System.Drawing.Size(543, 380);
             this.boughtView.TabIndex = 75;
+            this.boughtView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.boughtView_CellContentClick);
             // 
             // label1
             // 

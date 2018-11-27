@@ -47,5 +47,20 @@ namespace BuyNSell
         {
 
         }
+
+        private void boughtView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.boughtView.Rows[e.RowIndex];
+                String selected_pid = row.Cells["PID"].Value.ToString();
+                if (MessageBox.Show($"Do you want to see property '{row.Cells["PID"].Value.ToString()}'??", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Property_Viewer obj = new Property_Viewer(selected_pid);
+                    obj.Show();
+                }
+            }
+        }
     }
 }
