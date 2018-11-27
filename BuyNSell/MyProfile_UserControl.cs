@@ -50,6 +50,7 @@ namespace BuyNSell
             phone.Text = dr[4].ToString();
             income.Text = dr[5].ToString();
             address.Text = dr[6].ToString();
+            Money.Text = dr[7].ToString();
             con.Close();
         }
 
@@ -96,6 +97,12 @@ namespace BuyNSell
         private void label9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form11 obj = new Form11();
+            obj.Show();
         }
     }
 }

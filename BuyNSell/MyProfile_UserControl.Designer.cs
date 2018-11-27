@@ -40,6 +40,9 @@
             this.email = new System.Windows.Forms.Label();
             this.UID = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.Money = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -90,7 +93,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(156, 337);
+            this.label5.Location = new System.Drawing.Point(156, 395);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 25);
             this.label5.TabIndex = 4;
@@ -122,7 +125,7 @@
             // 
             this.address.AutoSize = true;
             this.address.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address.Location = new System.Drawing.Point(276, 337);
+            this.address.Location = new System.Drawing.Point(276, 395);
             this.address.Name = "address";
             this.address.Size = new System.Drawing.Size(96, 25);
             this.address.TabIndex = 10;
@@ -171,10 +174,45 @@
             this.name.Text = "Name :";
             this.name.Click += new System.EventHandler(this.label12_Click);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(174, 468);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(186, 38);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Add Or Remove Money";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Money
+            // 
+            this.Money.AutoSize = true;
+            this.Money.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Money.Location = new System.Drawing.Point(276, 347);
+            this.Money.Name = "Money";
+            this.Money.Size = new System.Drawing.Size(96, 25);
+            this.Money.TabIndex = 14;
+            this.Money.Text = "Address :";
+            // 
+            // label8
+            // 
+            this.label8.AllowDrop = true;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(169, 347);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(83, 25);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Money :";
+            // 
             // MyProfile_UserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Money);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.income);
             this.Controls.Add(this.address);
             this.Controls.Add(this.phone);
@@ -209,5 +247,8 @@
         private System.Windows.Forms.Label email;
         private System.Windows.Forms.Label UID;
         private System.Windows.Forms.Label name;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label Money;
+        private System.Windows.Forms.Label label8;
     }
 }
