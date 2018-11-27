@@ -9,7 +9,7 @@ namespace BuyNSell
 {
     class CashTransaction
     {
-        SqlConnection con = new SqlConnection(Form1.connectionString);
+        SqlConnection con = new SqlConnection(Login.connectionString);
         SqlDataReader dr;
         public void addMoney(int amount,String UID)
         {

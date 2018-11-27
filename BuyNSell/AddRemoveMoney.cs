@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace BuyNSell
 {
-    public partial class Form11 : Form
+    public partial class AddRemoveMoney : Form
     {
         
-        public Form11()
+        public AddRemoveMoney()
         {
             InitializeComponent();
         }
@@ -26,17 +26,17 @@ namespace BuyNSell
         private void button1_Click(object sender, EventArgs e)
         {
             CashTransaction add = new CashTransaction();
-            add.addMoney(Convert.ToInt32(textBox1.Text),Form3.UID);
-            MyProfile_UserControl.Instance.showDetails(Form3.UID);
+            add.addMoney(Convert.ToInt32(textBox1.Text),User_Details.UID);
+            MyProfile_UserControl.Instance.showDetails(User_Details.UID);
             this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             CashTransaction remove = new CashTransaction();
-            if (! remove.removeMoney(Convert.ToInt32(textBox1.Text), Form3.UID))
+            if (! remove.removeMoney(Convert.ToInt32(textBox1.Text), User_Details.UID))
                 MessageBox.Show("You do not have the required balance");
-            MyProfile_UserControl.Instance.showDetails(Form3.UID);
+            MyProfile_UserControl.Instance.showDetails(User_Details.UID);
             this.Close();
 
         }

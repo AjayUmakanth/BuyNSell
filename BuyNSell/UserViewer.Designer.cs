@@ -1,6 +1,6 @@
 ﻿namespace BuyNSell
 {
-    partial class Form10
+    partial class UserViewer
     {
         /// <summary>
         /// Required designer variable.

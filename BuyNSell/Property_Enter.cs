@@ -12,14 +12,14 @@ using System.IO;
 
 namespace BuyNSell
 {
-    public partial class Form6 : Form
+    public partial class Property_Enter : Form
     {
-        SqlConnection con = new SqlConnection(Form1.connectionString);
+        SqlConnection con = new SqlConnection(Login.connectionString);
         string cityName;
         string locName;
         string type;
         string selectedpid;
-        public Form6()
+        public Property_Enter()
         {
             InitializeComponent();
             cities.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -101,11 +101,11 @@ namespace BuyNSell
                 String property_name = PName.Text;
                 con.Open();
                 String qry1 = $"Insert into property (UID,PropertyName,Address,City_Name,Locality_Name,AskPrice,Availablity,Type) values " +
-                    $"({Form3.UID},'{PName.Text}','{Address.Text}','{cities.SelectedItem}','{locName}',{askPrice.Text},{available},'{type}');";
+                    $"({User_Details.UID},'{PName.Text}','{Address.Text}','{cities.SelectedItem}','{locName}',{askPrice.Text},{available},'{type}');";
                 SqlDataReader dr = new SqlCommand(qry1, con).ExecuteReader();
 
 
-                String qry2 = $"Select PID from Property where UID='{Form3.UID}'and PropertyName='{PName.Text}';";
+                String qry2 = $"Select PID from Property where UID='{User_Details.UID}'and PropertyName='{PName.Text}';";
                 dr = new SqlCommand(qry2, con).ExecuteReader();
                 dr.Read();
                 pidVal = dr[0].ToString();
@@ -128,7 +128,7 @@ namespace BuyNSell
                 MessageBox.Show("Peoperty Created successfully");
                 dr.Close();
 
-                MyProperties_UserControl.Instance.refreshDataGridView(Form3.UID);
+                MyProperties_UserControl.Instance.refreshDataGridView(User_Details.UID);
                 this.Hide();
             }
             catch (Exception exe)
@@ -176,8 +176,8 @@ namespace BuyNSell
                 MessageBox.Show("Changes Saved successfully");
                 dr.Close();
 
-                MyProperties_UserControl.Instance.refreshDataGridView(Form3.UID);
-                Form7 obj = new Form7(selectedpid);
+                MyProperties_UserControl.Instance.refreshDataGridView(User_Details.UID);
+                Property_Viewer obj = new Property_Viewer(selectedpid);
                 obj.Show();
                 this.Hide();
             

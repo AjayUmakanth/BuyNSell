@@ -11,11 +11,11 @@ using System.Data.SqlClient;
 
 namespace BuyNSell
 {
-    public partial class Form8 : Form
+    public partial class Enter_Bid : Form
     {
-        SqlConnection con = new SqlConnection(Form1.connectionString);
+        SqlConnection con = new SqlConnection(Login.connectionString);
 
-        public Form8()
+        public Enter_Bid()
         {
             InitializeComponent();
         }
@@ -40,12 +40,12 @@ namespace BuyNSell
                 else
                 {
                     con.Open();
-                    String qry1 = $"Insert into [Bids] (UID,PID,BidPrice) values ({Form3.UID},{Form7.selectedPID},{bid.Text});";
+                    String qry1 = $"Insert into [Bids] (UID,PID,BidPrice) values ({User_Details.UID},{Property_Viewer.selectedPID},{bid.Text});";
                     SqlDataReader dr = new SqlCommand(qry1, con).ExecuteReader();
                     con.Close();
                     MessageBox.Show("Your bid is added!!");
                     this.Hide();
-                    MyBids_UserControl.Instance.refreshDataGridView(Form3.UID);
+                    MyBids_UserControl.Instance.refreshDataGridView(User_Details.UID);
                     //
                 }
             }

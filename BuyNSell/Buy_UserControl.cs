@@ -13,7 +13,7 @@ namespace BuyNSell
 {
     public partial class Buy_UserControl : UserControl
     {
-        SqlConnection con = new SqlConnection(Form1.connectionString);
+        SqlConnection con = new SqlConnection(Login.connectionString);
         SqlCommand cmd;
         SqlDataReader dr;
         private static Buy_UserControl _instance;
@@ -30,7 +30,7 @@ namespace BuyNSell
         public Buy_UserControl()
         {
             InitializeComponent();
-            refreshDataGridView(Form3.UID);
+            refreshDataGridView(User_Details.UID);
         }
 
         public void refreshDataGridView(string uid)
@@ -52,7 +52,7 @@ namespace BuyNSell
 
         private void Buy_UserControl_Load(object sender, EventArgs e)
         {
-            refreshDataGridView(Form3.UID);
+            refreshDataGridView(User_Details.UID);
         }
 
         private void myPropView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -63,9 +63,9 @@ namespace BuyNSell
                 String selected_pid = row.Cells["PID"].Value.ToString();
                 if (MessageBox.Show($"Do you want to see property '{row.Cells["PropertyName"].Value.ToString()}'??", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    Form7 obj = new Form7(selected_pid);
+                    Property_Viewer obj = new Property_Viewer(selected_pid);
                     obj.Show();
-                    refreshDataGridView(Form3.UID);
+                    refreshDataGridView(User_Details.UID);
                     this.myPropView.Refresh();
                 }
 

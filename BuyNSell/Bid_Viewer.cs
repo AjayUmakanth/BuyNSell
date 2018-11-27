@@ -11,12 +11,12 @@ using System.Data.SqlClient;
 
 namespace BuyNSell
 {
-    public partial class Form9 : Form
+    public partial class Bid_Viewer : Form
     {
-        SqlConnection con = new SqlConnection(Form1.connectionString);
+        SqlConnection con = new SqlConnection(Login.connectionString);
         SqlCommand cmd;
 
-        public Form9()
+        public Bid_Viewer()
         {
             InitializeComponent();
             refreshDataGridView();
@@ -24,7 +24,7 @@ namespace BuyNSell
         public void refreshDataGridView()
         {
             con.Open();
-            String syntax = $"SELECT UID,BidPrice FROM [Bids] WHERE PID ={Form7.selectedPID} order by BidPrice desc"; 
+            String syntax = $"SELECT UID,BidPrice FROM [Bids] WHERE PID ={Property_Viewer.selectedPID} order by BidPrice desc"; 
             cmd = new SqlCommand(syntax, con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -41,7 +41,7 @@ namespace BuyNSell
                 String selected_uid = row.Cells["UID"].Value.ToString();
                 if (MessageBox.Show($"Do you want to see user '{selected_uid}'??", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    Form10 obj = new Form10(selected_uid, Form7.selectedPID, row.Cells["BidPrice"].Value.ToString());
+                    UserViewer obj = new UserViewer(selected_uid, Property_Viewer.selectedPID, row.Cells["BidPrice"].Value.ToString());
                     obj.Show();
                  
                 }

@@ -11,11 +11,11 @@ using System.Data.SqlClient;
 
 namespace BuyNSell
 {
-    public partial class Form2 : Form
+    public partial class Register : Form
     {
-        SqlConnection con = new SqlConnection(Form1.connectionString);
+        SqlConnection con = new SqlConnection(Login.connectionString);
 
-        public Form2()
+        public Register()
         {
             InitializeComponent();
         }
@@ -112,7 +112,7 @@ namespace BuyNSell
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form1 obj = new Form1();
+            Login obj = new Login();
             this.Hide();
             obj.Show();
         }

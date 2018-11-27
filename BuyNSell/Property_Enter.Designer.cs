@@ -1,6 +1,6 @@
 ﻿namespace BuyNSell
 {
-    partial class Form6
+    partial class Property_Enter
     {
         /// <summary>
         /// Required designer variable.

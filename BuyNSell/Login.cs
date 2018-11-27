@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 
 namespace BuyNSell
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
         //public static String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"G:\\Matharishwa\\git repos\\BuyNSell\\BuyNSell\\Database3.mdf\Integrated Security=True";
         public static String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\Database3.mdf\";Integrated Security=True";
@@ -20,7 +20,7 @@ namespace BuyNSell
         SqlConnection con = new SqlConnection(connectionString);
         SqlCommand cmd;
         SqlDataReader dr;
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
@@ -78,7 +78,7 @@ namespace BuyNSell
                     dr.Read();
                     uid = dr[0].ToString();
                     con.Close();
-                    Form3 obj = new Form3(uid);
+                    User_Details obj = new User_Details(uid);
                     this.Hide();
                     obj.Show();
                    
@@ -94,7 +94,7 @@ namespace BuyNSell
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form2 obj = new Form2();
+            Register obj = new Register();
             this.Hide();
             obj.Show();
 

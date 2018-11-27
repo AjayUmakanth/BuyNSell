@@ -13,7 +13,7 @@ namespace BuyNSell
 {
     public partial class MyProfile_UserControl : UserControl
     {
-        SqlConnection con = new SqlConnection(Form1.connectionString);
+        SqlConnection con = new SqlConnection(Login.connectionString);
         SqlCommand cmd;
         SqlDataReader dr;
         public static string UIDMP;
@@ -101,7 +101,7 @@ namespace BuyNSell
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form11 obj = new Form11();
+            AddRemoveMoney obj = new AddRemoveMoney();
             obj.Show();
         }
     }

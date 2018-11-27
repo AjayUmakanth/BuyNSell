@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace BuyNSell
 {
-    public partial class Form3 : Form
+    public partial class User_Details : Form
     {
         public  static string  UID;
         
 
-        public Form3(String uid)
+        public User_Details(String uid)
         {
             UID = uid;
             InitializeComponent();
@@ -127,7 +127,7 @@ namespace BuyNSell
         private void logOut_Click(object sender, EventArgs e)
         {   
             UID = "";
-            Form1 obj = new Form1();
+            Login obj = new Login();
             obj.Show();
             this.Hide();
            

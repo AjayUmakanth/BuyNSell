@@ -1,6 +1,6 @@
 ﻿namespace BuyNSell
 {
-    partial class Form11
+    partial class AddRemoveMoney
     {
         /// <summary>
         /// Required designer variable.

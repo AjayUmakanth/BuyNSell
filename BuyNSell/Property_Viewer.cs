@@ -12,12 +12,12 @@ using System.IO;
 
 namespace BuyNSell
 {
-    public partial class Form7 : Form
+    public partial class Property_Viewer : Form
     {
-        SqlConnection con = new SqlConnection(Form1.connectionString);
+        SqlConnection con = new SqlConnection(Login.connectionString);
         public static string selectedPID = "";
         static Boolean isOwner = false;
-        public Form7(string pid)
+        public Property_Viewer(string pid)
         {
             selectedPID = pid;
             InitializeComponent();
@@ -45,14 +45,14 @@ namespace BuyNSell
             ASKPRICE.Text = dr[6].ToString();
             AVAILABILITY.Text = dr[7].ToString() == "True" ? "Yes" : "No";
             TYPE.Text = dr[8].ToString();
-            if (!UID.Text.ToString().Equals(Form3.UID))
+            if (!UID.Text.ToString().Equals(User_Details.UID))
                 edit.Hide();
             if (AVAILABILITY.Text.Equals("No"))
                 button1.Hide();
             else
             {
 
-                if (UID.Text.ToString().Equals(Form3.UID))
+                if (UID.Text.ToString().Equals(User_Details.UID))
                 {
                     isOwner = true;
                     button1.Text = "Check Bids";
@@ -106,14 +106,14 @@ namespace BuyNSell
             {
                 if (MessageBox.Show($"Do you want to bid on this property ??", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    Form8 obj = new Form8();
+                    Enter_Bid obj = new Enter_Bid();
                     obj.Show();
                     this.Hide();
                 }            
             }
             else
             {
-                Form9 obj = new Form9();
+                Bid_Viewer obj = new Bid_Viewer();
                 obj.Show();
                 this.Hide();
             }
@@ -343,7 +343,7 @@ namespace BuyNSell
 
         private void edit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form6 obj = new Form6();
+            Property_Enter obj = new Property_Enter();
             obj.showData(selectedPID);
             obj.Show();
             this.Hide();

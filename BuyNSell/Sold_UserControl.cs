@@ -14,7 +14,7 @@ namespace BuyNSell
 {
     public partial class Sold_UserControl : UserControl
     {
-        SqlConnection con = new SqlConnection(Form1.connectionString);
+        SqlConnection con = new SqlConnection(Login.connectionString);
         SqlCommand cmd;
         SqlDataReader dr;
         private static Sold_UserControl _instance;

@@ -11,10 +11,10 @@ using System.Data.SqlClient;
 
 namespace BuyNSell
 {
-    public partial class Form10 : Form
+    public partial class UserViewer : Form
     {
 
-        SqlConnection con = new SqlConnection(Form1.connectionString);
+        SqlConnection con = new SqlConnection(Login.connectionString);
        
         public static string UIDMP;
         public static string PIDMP;
@@ -22,7 +22,7 @@ namespace BuyNSell
         SqlCommand cmd;
 
         SqlDataReader dr;
-        public Form10(string uid,String pid,string priceProp)
+        public UserViewer(string uid,String pid,string priceProp)
         {
             UIDMP = uid;
             PIDMP = pid;
@@ -60,10 +60,10 @@ namespace BuyNSell
             if (MessageBox.Show($"Do you want to sell to user '{UID.Text}'??", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 con.Open();
-                String qry1 = $"DELETE FROM [Bids] WHERE PID={Form7.selectedPID}";
-                String qry2 = $"UPDATE [Property] SET UID='{UIDMP}',Availablity=0 WHERE PID={Form7.selectedPID} ";
+                String qry1 = $"DELETE FROM [Bids] WHERE PID={Property_Viewer.selectedPID}";
+                String qry2 = $"UPDATE [Property] SET UID='{UIDMP}',Availablity=0 WHERE PID={Property_Viewer.selectedPID} ";
                 String qry3 = $"INSERT INTO [Transaction] (customer_UID,owner_UID,PID,price,date) values " +
-                    $"({UIDMP},{Form3.UID},{PIDMP},{price},'{DateTime.Now}');";
+                    $"({UIDMP},{User_Details.UID},{PIDMP},{price},'{DateTime.Now}');";
                 //need to refresh it after that 
                 SqlDataReader dr = new SqlCommand(qry1, con).ExecuteReader();
                 MessageBox.Show("querry1 executed");
@@ -78,7 +78,7 @@ namespace BuyNSell
                 dr.Close();
                 con.Close();
                 MessageBox.Show("Transaction completed successfully");
-                MyProperties_UserControl.Instance.refreshDataGridView(Form3.UID);
+                MyProperties_UserControl.Instance.refreshDataGridView(User_Details.UID);
 
                 
             }
