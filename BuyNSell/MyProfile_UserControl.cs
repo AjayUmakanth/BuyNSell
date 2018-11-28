@@ -51,7 +51,7 @@ namespace BuyNSell
             income.Text = dr[5].ToString();
             address.Text = dr[6].ToString();
             Money.Text = dr[7].ToString();
-            TotalAssets.Text = dr[8].ToString();
+            NetAssets.Text = dr[8].ToString();
             con.Close();
         }
 

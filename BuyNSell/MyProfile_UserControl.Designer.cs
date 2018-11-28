@@ -43,7 +43,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.Money = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.TotalAssets = new System.Windows.Forms.Label();
+            this.NetAssets = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -209,15 +209,15 @@
             this.label8.TabIndex = 13;
             this.label8.Text = "Your Wallet :";
             // 
-            // TotalAssets
+            // NetAssets
             // 
-            this.TotalAssets.AutoSize = true;
-            this.TotalAssets.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalAssets.Location = new System.Drawing.Point(276, 392);
-            this.TotalAssets.Name = "TotalAssets";
-            this.TotalAssets.Size = new System.Drawing.Size(127, 25);
-            this.TotalAssets.TabIndex = 30;
-            this.TotalAssets.Text = "TotalAssets :";
+            this.NetAssets.AutoSize = true;
+            this.NetAssets.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NetAssets.Location = new System.Drawing.Point(276, 392);
+            this.NetAssets.Name = "NetAssets";
+            this.NetAssets.Size = new System.Drawing.Size(113, 25);
+            this.NetAssets.TabIndex = 30;
+            this.NetAssets.Text = "NetAssets :";
             // 
             // label7
             // 
@@ -233,7 +233,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.TotalAssets);
+            this.Controls.Add(this.NetAssets);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.Money);
             this.Controls.Add(this.label8);
@@ -275,7 +275,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label Money;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label TotalAssets;
+        private System.Windows.Forms.Label NetAssets;
         private System.Windows.Forms.Label label7;
     }
 }
