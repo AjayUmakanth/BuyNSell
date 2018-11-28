@@ -79,6 +79,7 @@ namespace BuyNSell
             corner.Checked = dr[9].ToString() == "True" ? true : false;
             additional.Text = dr[10].ToString();
             selectedpid = selectedPID;
+            dr.Close();
             con.Close();
         }
         private void addData()
@@ -89,9 +90,7 @@ namespace BuyNSell
             int gard = (garden.Checked) ? 1 : 0;
             int corn = (corner.Checked) ? 1 : 0;
             String pidVal = "";
-
-            try
-            {
+            SqlDataReader dr;
                 if (image.Text != "")
                 {
                     FileStream stream = new FileStream(image.Text, FileMode.Open, FileAccess.Read);
@@ -102,16 +101,16 @@ namespace BuyNSell
                 con.Open();
                 String qry1 = $"Insert into property (UID,PropertyName,Address,City_Name,Locality_Name,AskPrice,Availablity,Type) values " +
                     $"({User_Details.UID},'{PName.Text}','{Address.Text}','{cities.SelectedItem}','{locName}',{askPrice.Text},{available},'{type}');";
-                SqlDataReader dr = new SqlCommand(qry1, con).ExecuteReader();
-
+                 dr = new SqlCommand(qry1, con).ExecuteReader();
+                dr.Close();
 
                 String qry2 = $"Select PID from Property where UID='{User_Details.UID}'and PropertyName='{PName.Text}';";
                 dr = new SqlCommand(qry2, con).ExecuteReader();
                 dr.Read();
                 pidVal = dr[0].ToString();
-
-
                 dr.Close();
+
+
                 String qry3 = $"Insert into {type} (PID,Area,Rooms,NoFloors,Floor,Parking,Road,RegYear,Garden,Corner,Additional,Photo) " +
                    $"values ({pidVal},{area.Text},{rooms.Text},{noFloor.Text},{floorNo.Text},{parking.Text},{roads.Text},@regYear,{gard},{corn},'{additional.Text}',@imagePath);";
                 SqlCommand cmd = new SqlCommand(qry3, con);
@@ -124,17 +123,13 @@ namespace BuyNSell
                 else
                     cmd.Parameters.Add("@imagePath", SqlDbType.VarBinary).Value = DBNull.Value;
                 cmd.ExecuteNonQuery();
-
                 MessageBox.Show("Peoperty Created successfully");
                 dr.Close();
+                con.Close();
 
                 MyProperties_UserControl.Instance.refreshDataGridView(User_Details.UID);
                 this.Hide();
-            }
-            catch (Exception exe)
-            {
-                MessageBox.Show(exe.ToString());
-            }
+            
 
 
         }
@@ -177,7 +172,7 @@ namespace BuyNSell
                 
                 MessageBox.Show("Changes Saved successfully");
                 dr.Close();
-
+                con.Close();
                 MyProperties_UserControl.Instance.refreshDataGridView(User_Details.UID);
                 Property_Viewer obj = new Property_Viewer(selectedpid);
                 obj.Show();
@@ -201,10 +196,12 @@ namespace BuyNSell
                     locality.Items.Add(dr[0].ToString());
                 }
                 dr.Close();
+                con.Close();
             }
             catch (SqlException x)
             {
                 MessageBox.Show(x.ToString());
+                con.Close();
             }
         }
        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
