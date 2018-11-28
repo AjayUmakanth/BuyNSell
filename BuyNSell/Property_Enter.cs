@@ -160,6 +160,8 @@ namespace BuyNSell
                 dr.Close();
                 String qry2 = $"Update {Buy_RentText.Text} set Area={area.Text},Rooms={rooms.Text},NoFloors={noFloor.Text},Floor={floorNo.Text},Parking={parking.Text}," +
                     $"Road={roads.Text},RegYear=@regYear,Garden={gard},Corner={corn},Additional='{additional.Text}' where PID={selectedpid}; ";
+                
+
                 if (imagePath != null)
                 {
                     qry2 = $"Update {Buy_RentText.Text} set Area={area.Text},Rooms={rooms.Text},NoFloors={noFloor.Text},Floor={floorNo.Text},Parking={parking.Text}," +
@@ -379,6 +381,11 @@ namespace BuyNSell
         }
 
         private void garden_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void askPrice_TextChanged(object sender, EventArgs e)
         {
 
         }

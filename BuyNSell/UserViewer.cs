@@ -97,5 +97,10 @@ namespace BuyNSell
             }
             con.Close();
         }
+
+        private void address_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

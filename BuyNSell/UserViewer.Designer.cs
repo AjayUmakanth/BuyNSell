@@ -57,11 +57,12 @@
             // 
             this.address.AutoSize = true;
             this.address.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address.Location = new System.Drawing.Point(273, 301);
+            this.address.Location = new System.Drawing.Point(273, 317);
             this.address.Name = "address";
             this.address.Size = new System.Drawing.Size(96, 25);
             this.address.TabIndex = 22;
             this.address.Text = "Address :";
+            this.address.Click += new System.EventHandler(this.address_Click);
             // 
             // phone
             // 
@@ -117,7 +118,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(153, 301);
+            this.label5.Location = new System.Drawing.Point(153, 317);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 25);
             this.label5.TabIndex = 16;

@@ -83,6 +83,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "AddRemoveMoney";
             this.Text = "BuyNSell";
+            this.Load += new System.EventHandler(this.AddRemoveMoney_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

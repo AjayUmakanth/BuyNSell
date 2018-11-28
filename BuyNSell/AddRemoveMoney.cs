@@ -40,5 +40,10 @@ namespace BuyNSell
             this.Close();
 
         }
+
+        private void AddRemoveMoney_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

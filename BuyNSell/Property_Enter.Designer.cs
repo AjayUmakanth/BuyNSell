@@ -321,6 +321,7 @@
             this.askPrice.Name = "askPrice";
             this.askPrice.Size = new System.Drawing.Size(121, 20);
             this.askPrice.TabIndex = 29;
+            this.askPrice.TextChanged += new System.EventHandler(this.askPrice_TextChanged);
             // 
             // availability
             // 
