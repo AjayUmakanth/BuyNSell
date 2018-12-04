@@ -58,7 +58,6 @@ namespace BuyNSell
             }
             con.Close();
             return temp;
-
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -80,8 +79,7 @@ namespace BuyNSell
                     con.Close();
                     User_Details obj = new User_Details(uid);
                     this.Hide();
-                    obj.Show();
-                   
+                    obj.Show();                   
             }
                 else
                     label4.Show();

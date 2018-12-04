@@ -60,7 +60,6 @@ namespace BuyNSell
             CashTransaction cash = new CashTransaction();
             Boolean moneyRecieved = cash.removeMoney(price, UIDMP); 
             con.Open();
-           // SqlTransaction trans = con.BeginTransaction("Sellng Property");
             try {
                 if (MessageBox.Show($"Do you want to sell to user '{UID.Text}'??", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -91,7 +90,6 @@ namespace BuyNSell
             catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-      //          trans.Rollback();
                 if(moneyRecieved)
                     cash.addMoney(price, UIDMP);
             }
