@@ -50,6 +50,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(179, 75);
             this.label1.Name = "label1";
@@ -61,6 +62,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(198, 20);
             this.label2.Name = "label2";
@@ -72,6 +74,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(183, 136);
             this.label3.Name = "label3";
@@ -83,6 +86,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(149, 190);
             this.label4.Name = "label4";
@@ -94,6 +98,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(158, 401);
             this.label5.Name = "label5";
@@ -105,6 +110,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(100, 247);
             this.label6.Name = "label6";
@@ -116,6 +122,7 @@
             // income
             // 
             this.income.AutoSize = true;
+            this.income.BackColor = System.Drawing.Color.Transparent;
             this.income.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.income.Location = new System.Drawing.Point(278, 247);
             this.income.Name = "income";
@@ -126,6 +133,7 @@
             // address
             // 
             this.address.AutoSize = true;
+            this.address.BackColor = System.Drawing.Color.Transparent;
             this.address.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.address.Location = new System.Drawing.Point(278, 401);
             this.address.Name = "address";
@@ -136,6 +144,7 @@
             // phone
             // 
             this.phone.AutoSize = true;
+            this.phone.BackColor = System.Drawing.Color.Transparent;
             this.phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phone.Location = new System.Drawing.Point(278, 190);
             this.phone.Name = "phone";
@@ -147,6 +156,7 @@
             // email
             // 
             this.email.AutoSize = true;
+            this.email.BackColor = System.Drawing.Color.Transparent;
             this.email.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.email.Location = new System.Drawing.Point(278, 136);
             this.email.Name = "email";
@@ -157,6 +167,7 @@
             // UID
             // 
             this.UID.AutoSize = true;
+            this.UID.BackColor = System.Drawing.Color.Transparent;
             this.UID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UID.Location = new System.Drawing.Point(278, 20);
             this.UID.Name = "UID";
@@ -168,6 +179,7 @@
             // name
             // 
             this.name.AutoSize = true;
+            this.name.BackColor = System.Drawing.Color.Transparent;
             this.name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name.Location = new System.Drawing.Point(278, 75);
             this.name.Name = "name";
@@ -179,7 +191,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(173, 489);
+            this.button1.Location = new System.Drawing.Point(184, 466);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(186, 38);
             this.button1.TabIndex = 12;
@@ -190,6 +202,7 @@
             // Money
             // 
             this.Money.AutoSize = true;
+            this.Money.BackColor = System.Drawing.Color.Transparent;
             this.Money.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Money.Location = new System.Drawing.Point(278, 301);
             this.Money.Name = "Money";
@@ -202,6 +215,7 @@
             // 
             this.label8.AllowDrop = true;
             this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(130, 301);
             this.label8.Name = "label8";
@@ -212,6 +226,7 @@
             // NetAssets
             // 
             this.NetAssets.AutoSize = true;
+            this.NetAssets.BackColor = System.Drawing.Color.Transparent;
             this.NetAssets.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NetAssets.Location = new System.Drawing.Point(278, 346);
             this.NetAssets.Name = "NetAssets";
@@ -222,6 +237,7 @@
             // label7
             // 
             this.label7.AllowDrop = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(50, 346);
             this.label7.Name = "label7";
@@ -234,6 +250,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.BackgroundImage = global::BuyNSell.Properties.Resources.blue_background_8_blue_abstract;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.NetAssets);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.Money);
@@ -252,7 +270,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "MyProfile_UserControl";
-            this.Size = new System.Drawing.Size(580, 560);
+            this.Size = new System.Drawing.Size(584, 520);
             this.Load += new System.EventHandler(this.MyProfile_UserControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

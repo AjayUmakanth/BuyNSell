@@ -118,6 +118,7 @@
             this.label3.Size = new System.Drawing.Size(59, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Name :";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -128,6 +129,7 @@
             this.label4.Size = new System.Drawing.Size(76, 20);
             this.label4.TabIndex = 5;
             this.label4.Text = "Address :";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // PName
             // 
@@ -152,6 +154,7 @@
             this.area.Name = "area";
             this.area.Size = new System.Drawing.Size(121, 20);
             this.area.TabIndex = 9;
+            this.area.TextChanged += new System.EventHandler(this.area_TextChanged);
             // 
             // label5
             // 
@@ -162,6 +165,7 @@
             this.label5.Size = new System.Drawing.Size(51, 20);
             this.label5.TabIndex = 8;
             this.label5.Text = "Area :";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // roads
             // 
@@ -188,6 +192,7 @@
             this.noFloor.Name = "noFloor";
             this.noFloor.Size = new System.Drawing.Size(121, 20);
             this.noFloor.TabIndex = 13;
+            this.noFloor.TextChanged += new System.EventHandler(this.noFloor_TextChanged);
             // 
             // label7
             // 
@@ -198,6 +203,7 @@
             this.label7.Size = new System.Drawing.Size(110, 20);
             this.label7.TabIndex = 12;
             this.label7.Text = "No of Rooms :";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // floorNo
             // 
@@ -216,6 +222,7 @@
             this.floor_no.Size = new System.Drawing.Size(81, 20);
             this.floor_no.TabIndex = 14;
             this.floor_no.Text = "Floor No. :";
+            this.floor_no.Click += new System.EventHandler(this.floor_no_Click);
             // 
             // rooms
             // 
@@ -314,6 +321,7 @@
             this.label14.Size = new System.Drawing.Size(86, 20);
             this.label14.TabIndex = 28;
             this.label14.Text = "Reg Date :";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // askPrice
             // 
@@ -463,6 +471,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.BackgroundImage = global::BuyNSell.Properties.Resources.blue_background_8_blue_abstract;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(847, 494);
             this.Controls.Add(this.Buy_RentText);
             this.Controls.Add(this.localityText);

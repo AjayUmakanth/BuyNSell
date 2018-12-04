@@ -143,9 +143,29 @@ namespace BuyNSell.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap blue_background_8_blue_abstract {
+            get {
+                object obj = ResourceManager.GetObject("blue-background-8-blue-abstract", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap download__1_ {
             get {
                 object obj = ResourceManager.GetObject("download (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pexels_photo_268415 {
+            get {
+                object obj = ResourceManager.GetObject("pexels-photo-268415", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

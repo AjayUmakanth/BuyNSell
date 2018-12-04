@@ -35,6 +35,7 @@
             // 
             // soldView
             // 
+            this.soldView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.soldView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.soldView.Location = new System.Drawing.Point(17, 102);
             this.soldView.Name = "soldView";

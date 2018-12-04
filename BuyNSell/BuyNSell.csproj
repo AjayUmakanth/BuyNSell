@@ -320,6 +320,8 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\blue-background-8-blue-abstract.jpg" />
+    <None Include="Resources\pexels-photo-268415.jpeg" />
     <None Include="Database3.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
