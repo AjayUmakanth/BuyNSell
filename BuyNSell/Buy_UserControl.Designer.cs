@@ -60,6 +60,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.myPropView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.myPropView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.myPropView.EnableHeadersVisualStyles = false;
             this.myPropView.Location = new System.Drawing.Point(16, 85);
             this.myPropView.Name = "myPropView";
             this.myPropView.Size = new System.Drawing.Size(543, 380);

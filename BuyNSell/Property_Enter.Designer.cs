@@ -73,6 +73,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(57, 99);
             this.label1.Name = "label1";
@@ -83,6 +84,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(30, 151);
             this.label2.Name = "label2";
@@ -112,6 +114,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(41, 203);
             this.label3.Name = "label3";
@@ -123,6 +126,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(24, 257);
             this.label4.Name = "label4";
@@ -159,6 +163,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(45, 404);
             this.label5.Name = "label5";
@@ -178,6 +183,7 @@
             // no_floor
             // 
             this.no_floor.AutoSize = true;
+            this.no_floor.BackColor = System.Drawing.Color.Transparent;
             this.no_floor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.no_floor.Location = new System.Drawing.Point(248, 151);
             this.no_floor.Name = "no_floor";
@@ -197,6 +203,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(253, 99);
             this.label7.Name = "label7";
@@ -216,6 +223,7 @@
             // floor_no
             // 
             this.floor_no.AutoSize = true;
+            this.floor_no.BackColor = System.Drawing.Color.Transparent;
             this.floor_no.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.floor_no.Location = new System.Drawing.Point(270, 255);
             this.floor_no.Name = "floor_no";
@@ -235,6 +243,7 @@
             // road
             // 
             this.road.AutoSize = true;
+            this.road.BackColor = System.Drawing.Color.Transparent;
             this.road.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.road.Location = new System.Drawing.Point(248, 205);
             this.road.Name = "road";
@@ -262,6 +271,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(521, 379);
             this.label10.Name = "label10";
@@ -273,6 +283,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(258, 324);
             this.label11.Name = "label11";
@@ -293,6 +304,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(517, 153);
             this.label12.Name = "label12";
@@ -304,6 +316,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(279, 304);
             this.label13.Name = "label13";
@@ -315,6 +328,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(263, 376);
             this.label14.Name = "label14";
@@ -334,34 +348,37 @@
             // availability
             // 
             this.availability.AutoSize = true;
+            this.availability.BackColor = System.Drawing.Color.Transparent;
             this.availability.Location = new System.Drawing.Point(665, 98);
             this.availability.Name = "availability";
             this.availability.Size = new System.Drawing.Size(75, 17);
             this.availability.TabIndex = 30;
             this.availability.Text = "Availability";
-            this.availability.UseVisualStyleBackColor = true;
+            this.availability.UseVisualStyleBackColor = false;
             this.availability.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // corner
             // 
             this.corner.AutoSize = true;
+            this.corner.BackColor = System.Drawing.Color.Transparent;
             this.corner.Location = new System.Drawing.Point(535, 98);
             this.corner.Name = "corner";
             this.corner.Size = new System.Drawing.Size(57, 17);
             this.corner.TabIndex = 31;
             this.corner.Text = "Corner";
-            this.corner.UseVisualStyleBackColor = true;
+            this.corner.UseVisualStyleBackColor = false;
             this.corner.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // garden
             // 
             this.garden.AutoSize = true;
+            this.garden.BackColor = System.Drawing.Color.Transparent;
             this.garden.Location = new System.Drawing.Point(598, 98);
             this.garden.Name = "garden";
             this.garden.Size = new System.Drawing.Size(61, 17);
             this.garden.TabIndex = 32;
             this.garden.Text = "Garden";
-            this.garden.UseVisualStyleBackColor = true;
+            this.garden.UseVisualStyleBackColor = false;
             this.garden.CheckedChanged += new System.EventHandler(this.garden_CheckedChanged);
             // 
             // image
@@ -375,6 +392,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(542, 289);
             this.label15.Name = "label15";
@@ -406,6 +424,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(175, 28);
             this.label16.Name = "label16";
@@ -417,6 +436,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(17, 365);
             this.label8.Name = "label8";
@@ -437,6 +457,7 @@
             // citiesLabel
             // 
             this.citiesLabel.AutoSize = true;
+            this.citiesLabel.BackColor = System.Drawing.Color.Transparent;
             this.citiesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.citiesLabel.Location = new System.Drawing.Point(106, 99);
             this.citiesLabel.Name = "citiesLabel";
@@ -448,6 +469,7 @@
             // localityText
             // 
             this.localityText.AutoSize = true;
+            this.localityText.BackColor = System.Drawing.Color.Transparent;
             this.localityText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.localityText.Location = new System.Drawing.Point(106, 151);
             this.localityText.Name = "localityText";
@@ -459,6 +481,7 @@
             // Buy_RentText
             // 
             this.Buy_RentText.AutoSize = true;
+            this.Buy_RentText.BackColor = System.Drawing.Color.Transparent;
             this.Buy_RentText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Buy_RentText.Location = new System.Drawing.Point(106, 365);
             this.Buy_RentText.Name = "Buy_RentText";
