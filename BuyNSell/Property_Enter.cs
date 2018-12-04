@@ -130,7 +130,7 @@ namespace BuyNSell
                 MyProperties_UserControl.Instance.refreshDataGridView(User_Details.UID);
                 this.Hide();
             
-
+ 
 
         }
         private void saveData()

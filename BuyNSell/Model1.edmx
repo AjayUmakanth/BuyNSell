@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Database3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Database3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bids">
           <Key>
             <PropertyRef Name="UID" />
@@ -12,37 +12,33 @@
           </Key>
           <Property Name="UID" Type="int" Nullable="false" />
           <Property Name="PID" Type="int" Nullable="false" />
-          <Property Name="BidPrice" Type="money" Nullable="false" />
+          <Property Name="BidPrice" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\DATABASE3.MDF.dbo.Buy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'C:\USERS\LENOVO\SOURCE\REPOS\AJAYUMAKANTH\BUYNSELL\BUYNSELL\DATABASE3.MDF.dbo.Buy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Buy">
           <Key>
             <PropertyRef Name="PID" />
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            <PropertyRef Name="Area" />
+            <PropertyRef Name="Rooms" />
+            <PropertyRef Name="NoFloors" />
+            <PropertyRef Name="Floor" />
+            <PropertyRef Name="Parking" />
+            <PropertyRef Name="Road" />
+            <PropertyRef Name="RegYear" />
+            <PropertyRef Name="Garden" />
+            <PropertyRef Name="Corner" />
           </Key>
           <Property Name="PID" Type="int" Nullable="false" />
           <Property Name="Area" Type="int" Nullable="false" />
           <Property Name="Rooms" Type="int" Nullable="false" />
           <Property Name="NoFloors" Type="int" Nullable="false" />
           <Property Name="Floor" Type="int" Nullable="false" />
-          <Property Name="Corner" Type="bit" Nullable="false" />
-          <Property Name="Availability" Type="bit" Nullable="false" />
           <Property Name="Parking" Type="int" Nullable="false" />
+          <Property Name="Road" Type="int" Nullable="false" />
           <Property Name="RegYear" Type="date" Nullable="false" />
-          <Property Name="AskPrice" Type="money" Nullable="false" />
-          <Property Name="Roadwidth" Type="int" Nullable="false" />
           <Property Name="Garden" Type="bit" Nullable="false" />
+          <Property Name="Corner" Type="bit" Nullable="false" />
           <Property Name="Additional" Type="varchar" MaxLength="50" />
           <Property Name="Photo" Type="image" />
         </EntityType>
@@ -64,47 +60,42 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
             <PropertyRef Name="PID" />
           </Key>
           <Property Name="PID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Locality_Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="UID" Type="int" Nullable="false" />
+          <Property Name="PropertyName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Locality_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="City_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AskPrice" Type="money" Nullable="false" />
+          <Property Name="Availablity" Type="bit" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\DATABASE3.MDF.dbo.Rent' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'C:\USERS\LENOVO\SOURCE\REPOS\AJAYUMAKANTH\BUYNSELL\BUYNSELL\DATABASE3.MDF.dbo.Rent' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Rent">
           <Key>
             <PropertyRef Name="PID" />
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            <PropertyRef Name="Area" />
+            <PropertyRef Name="Rooms" />
+            <PropertyRef Name="NoFloors" />
+            <PropertyRef Name="Floor" />
+            <PropertyRef Name="Parking" />
+            <PropertyRef Name="Road" />
+            <PropertyRef Name="RegYear" />
+            <PropertyRef Name="Garden" />
+            <PropertyRef Name="Corner" />
           </Key>
           <Property Name="PID" Type="int" Nullable="false" />
           <Property Name="Area" Type="int" Nullable="false" />
           <Property Name="Rooms" Type="int" Nullable="false" />
           <Property Name="NoFloors" Type="int" Nullable="false" />
           <Property Name="Floor" Type="int" Nullable="false" />
-          <Property Name="Corner" Type="bit" Nullable="false" />
-          <Property Name="Availability" Type="bit" Nullable="false" />
           <Property Name="Parking" Type="int" Nullable="false" />
-          <Property Name="RegYear" Type="date" Nullable="false" />
-          <Property Name="AskPrice" Type="money" Nullable="false" />
           <Property Name="Road" Type="int" Nullable="false" />
+          <Property Name="RegYear" Type="date" Nullable="false" />
           <Property Name="Garden" Type="bit" Nullable="false" />
+          <Property Name="Corner" Type="bit" Nullable="false" />
           <Property Name="Additional" Type="varchar" MaxLength="50" />
           <Property Name="Photo" Type="image" />
-        </EntityType>
-        <EntityType Name="Table">
-          <Key>
-            <PropertyRef Name="PID" />
-          </Key>
-          <Property Name="PID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Transaction">
           <Key>
@@ -128,6 +119,8 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
           <Property Name="Phone" Type="numeric" Precision="10" Scale="0" Nullable="false" />
           <Property Name="Income" Type="money" Nullable="false" />
           <Property Name="Address" Type="varchar" MaxLength="100" />
+          <Property Name="Cash" Type="int" />
+          <Property Name="NetAssets" Type="int" />
         </EntityType>
         <Association Name="FK_Bids_ToTable">
           <End Role="User" Type="Self.User" Multiplicity="1" />
@@ -154,7 +147,9 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Buy_ToTable">
-          <End Role="Property" Type="Self.Property" Multiplicity="1" />
+          <End Role="Property" Type="Self.Property" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Buy" Type="Self.Buy" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Property">
@@ -190,7 +185,9 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Property_ToTable_1">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Property" Type="Self.Property" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
@@ -201,8 +198,22 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Property_ToTable_2">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Property" Type="Self.Property" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="Property">
+              <PropertyRef Name="City_Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Rent_ToTable">
-          <End Role="Property" Type="Self.Property" Multiplicity="1" />
+          <End Role="Property" Type="Self.Property" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Property">
@@ -254,7 +265,6 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
           <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Locality" EntityType="Self.Locality" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Property" EntityType="Self.Property" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Buy" EntityType="Self.Buy" store:Type="Tables" store:Schema="dbo">
@@ -264,13 +274,11 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
     [Buy].[Rooms] AS [Rooms], 
     [Buy].[NoFloors] AS [NoFloors], 
     [Buy].[Floor] AS [Floor], 
-    [Buy].[Corner] AS [Corner], 
-    [Buy].[Availability] AS [Availability], 
     [Buy].[Parking] AS [Parking], 
+    [Buy].[Road] AS [Road], 
     [Buy].[RegYear] AS [RegYear], 
-    [Buy].[AskPrice] AS [AskPrice], 
-    [Buy].[Roadwidth] AS [Roadwidth], 
     [Buy].[Garden] AS [Garden], 
+    [Buy].[Corner] AS [Corner], 
     [Buy].[Additional] AS [Additional], 
     [Buy].[Photo] AS [Photo]
     FROM [dbo].[Buy] AS [Buy]</DefiningQuery>
@@ -282,13 +290,11 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
     [Rent].[Rooms] AS [Rooms], 
     [Rent].[NoFloors] AS [NoFloors], 
     [Rent].[Floor] AS [Floor], 
-    [Rent].[Corner] AS [Corner], 
-    [Rent].[Availability] AS [Availability], 
     [Rent].[Parking] AS [Parking], 
-    [Rent].[RegYear] AS [RegYear], 
-    [Rent].[AskPrice] AS [AskPrice], 
     [Rent].[Road] AS [Road], 
+    [Rent].[RegYear] AS [RegYear], 
     [Rent].[Garden] AS [Garden], 
+    [Rent].[Corner] AS [Corner], 
     [Rent].[Additional] AS [Additional], 
     [Rent].[Photo] AS [Photo]
     FROM [dbo].[Rent] AS [Rent]</DefiningQuery>
@@ -317,6 +323,10 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
             <End Role="User" EntitySet="User" />
             <End Role="Property" EntitySet="Property" />
           </AssociationSet>
+          <AssociationSet Name="FK_Property_ToTable_2" Association="Self.FK_Property_ToTable_2">
+            <End Role="City" EntitySet="City" />
+            <End Role="Property" EntitySet="Property" />
+          </AssociationSet>
           <AssociationSet Name="FK_Rent_ToTable" Association="Self.FK_Rent_ToTable">
             <End Role="Property" EntitySet="Property" />
             <End Role="Rent" EntitySet="Rent" />
@@ -334,7 +344,8 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
             <End Role="Transaction" EntitySet="Transaction" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Database3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -345,7 +356,7 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
           </Key>
           <Property Name="UID" Type="Int32" Nullable="false" />
           <Property Name="PID" Type="Int32" Nullable="false" />
-          <Property Name="BidPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="BidPrice" Type="Int32" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_Bids_ToTable" FromRole="Bids" ToRole="User" />
           <NavigationProperty Name="Property" Relationship="Self.FK_Bids_ToTable_1" FromRole="Bids" ToRole="Property" />
         </EntityType>
@@ -355,11 +366,11 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
           </Key>
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Localities" Relationship="Self.FK_Locality_ToTable" FromRole="City" ToRole="Locality" />
+          <NavigationProperty Name="Properties" Relationship="Self.FK_Property_ToTable_2" FromRole="City" ToRole="Property" />
         </EntityType>
         <EntityType Name="Locality">
           <Key>
             <PropertyRef Name="Name" />
-            <PropertyRef Name="City_Name" />
           </Key>
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="City_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -369,32 +380,27 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
         <EntityType Name="Property">
           <Key>
             <PropertyRef Name="PID" />
-            <PropertyRef Name="UID" />
-            <PropertyRef Name="Locality_Name" />
           </Key>
           <Property Name="PID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Locality_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="UID" Type="Int32" Nullable="false" />
+          <Property Name="PropertyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Locality_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AskPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Availablity" Type="Boolean" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Bids" Relationship="Self.FK_Bids_ToTable_1" FromRole="Property" ToRole="Bids" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Property_ToTable_2" FromRole="Property" ToRole="City" />
           <NavigationProperty Name="Locality" Relationship="Self.FK_Property_ToTable" FromRole="Property" ToRole="Locality" />
           <NavigationProperty Name="Buys" Relationship="Self.FK_Buy_ToTable" FromRole="Property" ToRole="Buy" />
           <NavigationProperty Name="User" Relationship="Self.FK_Property_ToTable_1" FromRole="Property" ToRole="User" />
           <NavigationProperty Name="Rents" Relationship="Self.FK_Rent_ToTable" FromRole="Property" ToRole="Rent" />
           <NavigationProperty Name="Transactions" Relationship="Self.FK_Transaction_ToTable_2" FromRole="Property" ToRole="Transaction" />
         </EntityType>
-        <EntityType Name="Table">
-          <Key>
-            <PropertyRef Name="PID" />
-          </Key>
-          <Property Name="PID" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="Transaction">
           <Key>
             <PropertyRef Name="TID" />
-            <PropertyRef Name="customer_UID" />
-            <PropertyRef Name="PID" />
-            <PropertyRef Name="owner_UID" />
           </Key>
           <Property Name="TID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="customer_UID" Type="Int32" Nullable="false" />
@@ -417,6 +423,8 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
           <Property Name="Phone" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
           <Property Name="Income" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Cash" Type="Int32" />
+          <Property Name="NetAssets" Type="Int32" />
           <NavigationProperty Name="Bids" Relationship="Self.FK_Bids_ToTable" FromRole="User" ToRole="Bids" />
           <NavigationProperty Name="Properties" Relationship="Self.FK_Property_ToTable_1" FromRole="User" ToRole="Property" />
           <NavigationProperty Name="Transactions" Relationship="Self.FK_Transaction_ToTable" FromRole="User" ToRole="Transaction" />
@@ -425,19 +433,26 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
         <EntityType Name="Buy">
           <Key>
             <PropertyRef Name="PID" />
+            <PropertyRef Name="Area" />
+            <PropertyRef Name="Rooms" />
+            <PropertyRef Name="NoFloors" />
+            <PropertyRef Name="Floor" />
+            <PropertyRef Name="Parking" />
+            <PropertyRef Name="Road" />
+            <PropertyRef Name="RegYear" />
+            <PropertyRef Name="Garden" />
+            <PropertyRef Name="Corner" />
           </Key>
           <Property Name="PID" Type="Int32" Nullable="false" />
           <Property Name="Area" Type="Int32" Nullable="false" />
           <Property Name="Rooms" Type="Int32" Nullable="false" />
           <Property Name="NoFloors" Type="Int32" Nullable="false" />
           <Property Name="Floor" Type="Int32" Nullable="false" />
-          <Property Name="Corner" Type="Boolean" Nullable="false" />
-          <Property Name="Availability" Type="Boolean" Nullable="false" />
           <Property Name="Parking" Type="Int32" Nullable="false" />
+          <Property Name="Road" Type="Int32" Nullable="false" />
           <Property Name="RegYear" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="AskPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="Roadwidth" Type="Int32" Nullable="false" />
           <Property Name="Garden" Type="Boolean" Nullable="false" />
+          <Property Name="Corner" Type="Boolean" Nullable="false" />
           <Property Name="Additional" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Property" Relationship="Self.FK_Buy_ToTable" FromRole="Buy" ToRole="Property" />
@@ -445,19 +460,26 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
         <EntityType Name="Rent">
           <Key>
             <PropertyRef Name="PID" />
+            <PropertyRef Name="Area" />
+            <PropertyRef Name="Rooms" />
+            <PropertyRef Name="NoFloors" />
+            <PropertyRef Name="Floor" />
+            <PropertyRef Name="Parking" />
+            <PropertyRef Name="Road" />
+            <PropertyRef Name="RegYear" />
+            <PropertyRef Name="Garden" />
+            <PropertyRef Name="Corner" />
           </Key>
           <Property Name="PID" Type="Int32" Nullable="false" />
           <Property Name="Area" Type="Int32" Nullable="false" />
           <Property Name="Rooms" Type="Int32" Nullable="false" />
           <Property Name="NoFloors" Type="Int32" Nullable="false" />
           <Property Name="Floor" Type="Int32" Nullable="false" />
-          <Property Name="Corner" Type="Boolean" Nullable="false" />
-          <Property Name="Availability" Type="Boolean" Nullable="false" />
           <Property Name="Parking" Type="Int32" Nullable="false" />
-          <Property Name="RegYear" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="AskPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="Road" Type="Int32" Nullable="false" />
+          <Property Name="RegYear" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Garden" Type="Boolean" Nullable="false" />
+          <Property Name="Corner" Type="Boolean" Nullable="false" />
           <Property Name="Additional" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Property" Relationship="Self.FK_Rent_ToTable" FromRole="Rent" ToRole="Property" />
@@ -498,6 +520,18 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Property_ToTable_2">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Property" Type="Self.Property" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="Property">
+              <PropertyRef Name="City_Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Property_ToTable">
           <End Role="Locality" Type="Self.Locality" Multiplicity="1" />
           <End Role="Property" Type="Self.Property" Multiplicity="*" />
@@ -511,8 +545,10 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Buy_ToTable">
-          <End Role="Property" Type="Self.Property" Multiplicity="1" />
-          <End Role="Buy" Type="Self.Buy" Multiplicity="1" />
+          <End Role="Property" Type="Self.Property" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Buy" Type="Self.Buy" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Property">
               <PropertyRef Name="PID" />
@@ -523,7 +559,9 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Property_ToTable_1">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Property" Type="Self.Property" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
@@ -535,8 +573,10 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Rent_ToTable">
-          <End Role="Property" Type="Self.Property" Multiplicity="1" />
-          <End Role="Rent" Type="Self.Rent" Multiplicity="1" />
+          <End Role="Property" Type="Self.Property" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Property">
               <PropertyRef Name="PID" />
@@ -582,12 +622,11 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Database3Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Bids" EntityType="Self.Bid" />
           <EntitySet Name="Cities" EntityType="Self.City" />
           <EntitySet Name="Localities" EntityType="Self.Locality" />
           <EntitySet Name="Properties" EntityType="Self.Property" />
-          <EntitySet Name="Tables" EntityType="Self.Table" />
           <EntitySet Name="Transactions" EntityType="Self.Transaction" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="Buys" EntityType="Self.Buy" />
@@ -603,6 +642,10 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
           <AssociationSet Name="FK_Locality_ToTable" Association="Self.FK_Locality_ToTable">
             <End Role="City" EntitySet="Cities" />
             <End Role="Locality" EntitySet="Localities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Property_ToTable_2" Association="Self.FK_Property_ToTable_2">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Property" EntitySet="Properties" />
           </AssociationSet>
           <AssociationSet Name="FK_Property_ToTable" Association="Self.FK_Property_ToTable">
             <End Role="Locality" EntitySet="Localities" />
@@ -638,7 +681,7 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Database3ModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+        <EntityContainerMapping StorageEntityContainer="Database3ModelStoreContainer" CdmEntityContainer="Database3Entities">
           <EntitySetMapping Name="Bids">
             <EntityTypeMapping TypeName="Database3Model.Bid">
               <MappingFragment StoreEntitySet="Bids">
@@ -667,16 +710,14 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
             <EntityTypeMapping TypeName="Database3Model.Property">
               <MappingFragment StoreEntitySet="Property">
                 <ScalarProperty Name="PID" ColumnName="PID" />
-                <ScalarProperty Name="Locality_Name" ColumnName="Locality_Name" />
                 <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="PropertyName" ColumnName="PropertyName" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tables">
-            <EntityTypeMapping TypeName="Database3Model.Table">
-              <MappingFragment StoreEntitySet="Table">
-                <ScalarProperty Name="PID" ColumnName="PID" />
+                <ScalarProperty Name="Locality_Name" ColumnName="Locality_Name" />
+                <ScalarProperty Name="City_Name" ColumnName="City_Name" />
+                <ScalarProperty Name="AskPrice" ColumnName="AskPrice" />
+                <ScalarProperty Name="Availablity" ColumnName="Availablity" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -702,6 +743,8 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Income" ColumnName="Income" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Cash" ColumnName="Cash" />
+                <ScalarProperty Name="NetAssets" ColumnName="NetAssets" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -713,13 +756,11 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
                 <ScalarProperty Name="Rooms" ColumnName="Rooms" />
                 <ScalarProperty Name="NoFloors" ColumnName="NoFloors" />
                 <ScalarProperty Name="Floor" ColumnName="Floor" />
-                <ScalarProperty Name="Corner" ColumnName="Corner" />
-                <ScalarProperty Name="Availability" ColumnName="Availability" />
                 <ScalarProperty Name="Parking" ColumnName="Parking" />
+                <ScalarProperty Name="Road" ColumnName="Road" />
                 <ScalarProperty Name="RegYear" ColumnName="RegYear" />
-                <ScalarProperty Name="AskPrice" ColumnName="AskPrice" />
-                <ScalarProperty Name="Roadwidth" ColumnName="Roadwidth" />
                 <ScalarProperty Name="Garden" ColumnName="Garden" />
+                <ScalarProperty Name="Corner" ColumnName="Corner" />
                 <ScalarProperty Name="Additional" ColumnName="Additional" />
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
               </MappingFragment>
@@ -733,13 +774,11 @@ warning 6002: The table/view 'G:\MATHARISHWA\GIT REPOS\REM AJ\BUYNSELL\BUYNSELL\
                 <ScalarProperty Name="Rooms" ColumnName="Rooms" />
                 <ScalarProperty Name="NoFloors" ColumnName="NoFloors" />
                 <ScalarProperty Name="Floor" ColumnName="Floor" />
-                <ScalarProperty Name="Corner" ColumnName="Corner" />
-                <ScalarProperty Name="Availability" ColumnName="Availability" />
                 <ScalarProperty Name="Parking" ColumnName="Parking" />
-                <ScalarProperty Name="RegYear" ColumnName="RegYear" />
-                <ScalarProperty Name="AskPrice" ColumnName="AskPrice" />
                 <ScalarProperty Name="Road" ColumnName="Road" />
+                <ScalarProperty Name="RegYear" ColumnName="RegYear" />
                 <ScalarProperty Name="Garden" ColumnName="Garden" />
+                <ScalarProperty Name="Corner" ColumnName="Corner" />
                 <ScalarProperty Name="Additional" ColumnName="Additional" />
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
               </MappingFragment>

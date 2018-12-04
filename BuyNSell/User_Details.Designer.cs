@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(User_Details));
             this.contentPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
@@ -46,22 +47,22 @@
             this.contentPanel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.contentPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.contentPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.contentPanel.Location = new System.Drawing.Point(117, 0);
+            this.contentPanel.Location = new System.Drawing.Point(110, 0);
             this.contentPanel.Name = "contentPanel";
-            this.contentPanel.Size = new System.Drawing.Size(577, 520);
+            this.contentPanel.Size = new System.Drawing.Size(584, 520);
             this.contentPanel.TabIndex = 1;
             this.contentPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel1.BackgroundImage = global::BuyNSell.Properties.Resources.back1;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.logOut);
-            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
@@ -129,7 +130,7 @@
             this.button3.BackColor = System.Drawing.Color.Transparent;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(-3, 193);
+            this.button3.Location = new System.Drawing.Point(-3, 194);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(120, 68);
             this.button3.TabIndex = 4;
@@ -168,6 +169,7 @@
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.Location = new System.Drawing.Point(-3, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 68);

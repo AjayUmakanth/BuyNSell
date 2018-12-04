@@ -34,10 +34,15 @@ namespace BuyNSell
         private void button2_Click(object sender, EventArgs e)
         {
             CashTransaction remove = new CashTransaction();
-            if (! remove.removeMoney(Convert.ToInt32(textBox1.Text), User_Details.UID))
-                MessageBox.Show("You do not have the required balance");
-            MyProfile_UserControl.Instance.showDetails(User_Details.UID);
-            this.Close();
+            if (textBox1.Text != "")
+            {
+                if (!remove.removeMoney(Convert.ToInt32(textBox1.Text), User_Details.UID))
+                    MessageBox.Show("You do not have the required balance");
+                MyProfile_UserControl.Instance.showDetails(User_Details.UID);
+                this.Close();
+            }
+            else
+                MessageBox.Show("Field is empty");
 
         }
 
