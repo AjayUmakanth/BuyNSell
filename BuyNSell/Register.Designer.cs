@@ -28,6 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Noogen.Validation.ValidationRule validationRule1 = new Noogen.Validation.ValidationRule();
+            Noogen.Validation.ValidationRule validationRule2 = new Noogen.Validation.ValidationRule();
+            Noogen.Validation.ValidationRule validationRule3 = new Noogen.Validation.ValidationRule();
+            Noogen.Validation.ValidationRule validationRule4 = new Noogen.Validation.ValidationRule();
+            Noogen.Validation.ValidationRule validationRule5 = new Noogen.Validation.ValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,6 +50,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.validationProvider1 = new Noogen.Validation.ValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,6 +132,9 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(132, 20);
             this.textBox1.TabIndex = 7;
+            validationRule1.ErrorMessage = "Fill Details";
+            validationRule1.IsRequired = true;
+            this.validationProvider1.SetValidationRule(this.textBox1, validationRule1);
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
@@ -133,6 +143,11 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(132, 20);
             this.textBox2.TabIndex = 8;
+            validationRule2.ErrorMessage = "Email is invalid.";
+            validationRule2.IsRequired = true;
+            validationRule2.RegExPattern = "^([0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9}" +
+    ")$";
+            this.validationProvider1.SetValidationRule(this.textBox2, validationRule2);
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox3
@@ -141,6 +156,9 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(132, 20);
             this.textBox3.TabIndex = 9;
+            validationRule3.ErrorMessage = "Enter a strong password";
+            validationRule3.IsRequired = true;
+            this.validationProvider1.SetValidationRule(this.textBox3, validationRule3);
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBox4
@@ -149,6 +167,11 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(132, 20);
             this.textBox4.TabIndex = 10;
+            validationRule4.ErrorMessage = "Not a valid phone number, ###-###-###";
+            validationRule4.IsCaseSensitive = false;
+            validationRule4.IsRequired = true;
+            validationRule4.RegExPattern = "^\\d{3}\\d{3}\\d{4}$";
+            this.validationProvider1.SetValidationRule(this.textBox4, validationRule4);
             this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // textBox5
@@ -157,6 +180,11 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(132, 20);
             this.textBox5.TabIndex = 11;
+            validationRule5.ErrorMessage = "Input is invalid.";
+            validationRule5.IsCaseSensitive = false;
+            validationRule5.IsRequired = true;
+            validationRule5.RegExPattern = "\\d";
+            this.validationProvider1.SetValidationRule(this.textBox5, validationRule5);
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // textBox6
@@ -173,6 +201,8 @@
             this.button1.BackColor = System.Drawing.SystemColors.Control;
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(157, 466);
             this.button1.Name = "button1";
@@ -204,6 +234,10 @@
             this.pictureBox2.TabIndex = 16;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // validationProvider1
+            // 
+            this.validationProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("validationProvider1.Icon")));
             // 
             // Register
             // 
@@ -251,5 +285,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private Noogen.Validation.ValidationProvider validationProvider1;
     }
 }

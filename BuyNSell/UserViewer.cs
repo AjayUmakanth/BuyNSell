@@ -66,7 +66,7 @@ namespace BuyNSell
                     String qry1 = $"DELETE FROM [Bids] WHERE PID={Property_Viewer.selectedPID}";
                     String qry2 = $"UPDATE [Property] SET UID='{UIDMP}',Availablity=0,AskPrice=0 WHERE PID={Property_Viewer.selectedPID} ";
                     String qry3 = $"INSERT INTO [Transaction] (customer_UID,owner_UID,PID,price,date) values " +
-                        $"({UIDMP},{User_Details.UID},{PIDMP},{price},@date);";
+                        $"({UIDMP},{User_Details.UID},{PIDMP},{price},@date)";
                     //need to refresh it after that 
                     if (moneyRecieved)
                         cash.addMoney(price, User_Details.UID);

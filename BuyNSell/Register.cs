@@ -87,6 +87,11 @@ namespace BuyNSell
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (!validationProvider1.Validate())
+            {
+                this.validationProvider1.ValidationMessages(!this.validationProvider1.Validate());
+                return;
+            }
             SqlCommand cmd = new SqlCommand("UserAdd_SP", con);
             cmd.CommandType = CommandType.StoredProcedure;
             Boolean added = true;
