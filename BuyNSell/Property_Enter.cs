@@ -82,21 +82,49 @@ namespace BuyNSell
             dr.Close();
             con.Close();
         }
+        bool propPresent()
+        {
+            con.Open();
+            string QRY = $"select * from [Property] where UID={User_Details.UID} and PropertyName='{PName.Text}'";
+            SqlDataReader dr = new SqlCommand(QRY, con).ExecuteReader();
+            bool isPresent = dr.HasRows;
+            dr.Close();
+            con.Close();
+            return isPresent;
+        }
+
         private void addData()
         {
-
+            if (!validationProvider1.Validate()|| !validationProvider2.Validate())
+            {
+                this.validationProvider1.ValidationMessages(!this.validationProvider1.Validate());
+                this.validationProvider2.ValidationMessages(!this.validationProvider2.Validate());
+                return;
+            }
+            if (propPresent())
+            {
+                MessageBox.Show($"Property '{PName.Text}' is already registered!!");
+                return;
+            }
             byte[] imagePath = null;
             int available = (availability.Checked) ? 1 : 0;
             int gard = (garden.Checked) ? 1 : 0;
             int corn = (corner.Checked) ? 1 : 0;
             String pidVal = "";
             SqlDataReader dr;
+            try
+            {
                 if (image.Text != "")
                 {
                     FileStream stream = new FileStream(image.Text, FileMode.Open, FileAccess.Read);
                     imagePath = new BinaryReader(stream).ReadBytes((int)stream.Length);
                 }
-
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Image nor found or loaded!");
+                return;
+            }
                 String property_name = PName.Text;
                 con.Open();
                 String qry1 = $"Insert into property (UID,PropertyName,Address,City_Name,Locality_Name,AskPrice,Availablity,Type) values " +
@@ -135,7 +163,16 @@ namespace BuyNSell
         }
         private void saveData()
         {
-
+            if (!validationProvider1.Validate())
+            {
+                this.validationProvider1.ValidationMessages(!this.validationProvider1.Validate());
+                return;
+            }
+            if (propPresent())
+            {
+                MessageBox.Show($"Property '{PName.Text}' is already registered!!");
+                return;
+            }
             byte[] imagePath = null;
             int available = (availability.Checked) ? 1 : 0;
             int gard = (garden.Checked) ? 1 : 0;
@@ -330,6 +367,7 @@ namespace BuyNSell
 
         private void button1_Click(object sender, EventArgs e)
         {
+           
             if (button1.Text.Equals("Create"))
                 addData();
             else

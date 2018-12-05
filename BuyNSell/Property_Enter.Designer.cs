@@ -28,6 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Noogen.Validation.ValidationRule validationRule1 = new Noogen.Validation.ValidationRule();
+            Noogen.Validation.ValidationRule validationRule2 = new Noogen.Validation.ValidationRule();
+            Noogen.Validation.ValidationRule validationRule3 = new Noogen.Validation.ValidationRule();
+            Noogen.Validation.ValidationRule validationRule4 = new Noogen.Validation.ValidationRule();
+            Noogen.Validation.ValidationRule validationRule5 = new Noogen.Validation.ValidationRule();
+            Noogen.Validation.ValidationRule validationRule6 = new Noogen.Validation.ValidationRule();
+            Noogen.Validation.ValidationRule validationRule7 = new Noogen.Validation.ValidationRule();
+            Noogen.Validation.ValidationRule validationRule8 = new Noogen.Validation.ValidationRule();
+            Noogen.Validation.ValidationRule validationRule9 = new Noogen.Validation.ValidationRule();
+            Noogen.Validation.ValidationRule validationRule10 = new Noogen.Validation.ValidationRule();
+            Noogen.Validation.ValidationRule validationRule11 = new Noogen.Validation.ValidationRule();
+            Noogen.Validation.ValidationRule validationRule12 = new Noogen.Validation.ValidationRule();
+            Noogen.Validation.ValidationRule validationRule13 = new Noogen.Validation.ValidationRule();
+            Noogen.Validation.ValidationRule validationRule14 = new Noogen.Validation.ValidationRule();
+            Noogen.Validation.ValidationRule validationRule15 = new Noogen.Validation.ValidationRule();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Property_Enter));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cities = new System.Windows.Forms.ComboBox();
@@ -68,6 +85,8 @@
             this.citiesLabel = new System.Windows.Forms.Label();
             this.localityText = new System.Windows.Forms.Label();
             this.Buy_RentText = new System.Windows.Forms.Label();
+            this.validationProvider1 = new Noogen.Validation.ValidationProvider(this.components);
+            this.validationProvider2 = new Noogen.Validation.ValidationProvider(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -100,6 +119,11 @@
             this.cities.Name = "cities";
             this.cities.Size = new System.Drawing.Size(121, 21);
             this.cities.TabIndex = 2;
+            validationRule1.IsRequired = true;
+            this.validationProvider2.SetValidationRule(this.cities, validationRule1);
+            validationRule2.ErrorMessage = "Field Invalid";
+            validationRule2.IsCaseSensitive = false;
+            this.validationProvider1.SetValidationRule(this.cities, validationRule2);
             this.cities.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // locality
@@ -109,6 +133,10 @@
             this.locality.Name = "locality";
             this.locality.Size = new System.Drawing.Size(121, 21);
             this.locality.TabIndex = 3;
+            validationRule3.IsRequired = true;
+            this.validationProvider2.SetValidationRule(this.locality, validationRule3);
+            validationRule4.ErrorMessage = "Field Inalid";
+            this.validationProvider1.SetValidationRule(this.locality, validationRule4);
             this.locality.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label3
@@ -141,6 +169,9 @@
             this.PName.Name = "PName";
             this.PName.Size = new System.Drawing.Size(121, 20);
             this.PName.TabIndex = 6;
+            validationRule5.ErrorMessage = "Field Invalid";
+            validationRule5.IsRequired = true;
+            this.validationProvider1.SetValidationRule(this.PName, validationRule5);
             this.PName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Address
@@ -150,6 +181,10 @@
             this.Address.Name = "Address";
             this.Address.Size = new System.Drawing.Size(121, 87);
             this.Address.TabIndex = 7;
+            validationRule6.ErrorMessage = "Field Invalid";
+            validationRule6.IsCaseSensitive = false;
+            validationRule6.IsRequired = true;
+            this.validationProvider1.SetValidationRule(this.Address, validationRule6);
             this.Address.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // area
@@ -158,6 +193,11 @@
             this.area.Name = "area";
             this.area.Size = new System.Drawing.Size(121, 20);
             this.area.TabIndex = 9;
+            validationRule7.ErrorMessage = "Field Invalid";
+            validationRule7.IsCaseSensitive = false;
+            validationRule7.IsRequired = true;
+            validationRule7.RegExPattern = "^\\d*$";
+            this.validationProvider1.SetValidationRule(this.area, validationRule7);
             this.area.TextChanged += new System.EventHandler(this.area_TextChanged);
             // 
             // label5
@@ -178,6 +218,10 @@
             this.roads.Name = "roads";
             this.roads.Size = new System.Drawing.Size(121, 20);
             this.roads.TabIndex = 11;
+            validationRule8.ErrorMessage = "Field Invalid";
+            validationRule8.IsRequired = true;
+            validationRule8.RegExPattern = "^\\d*$";
+            this.validationProvider1.SetValidationRule(this.roads, validationRule8);
             this.roads.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // no_floor
@@ -198,6 +242,9 @@
             this.noFloor.Name = "noFloor";
             this.noFloor.Size = new System.Drawing.Size(121, 20);
             this.noFloor.TabIndex = 13;
+            validationRule9.IsRequired = true;
+            validationRule9.RegExPattern = "^\\d*$";
+            this.validationProvider1.SetValidationRule(this.noFloor, validationRule9);
             this.noFloor.TextChanged += new System.EventHandler(this.noFloor_TextChanged);
             // 
             // label7
@@ -218,6 +265,10 @@
             this.floorNo.Name = "floorNo";
             this.floorNo.Size = new System.Drawing.Size(121, 20);
             this.floorNo.TabIndex = 15;
+            validationRule10.ErrorMessage = "Field Invalid";
+            validationRule10.IsRequired = true;
+            validationRule10.RegExPattern = "^\\d*$";
+            this.validationProvider1.SetValidationRule(this.floorNo, validationRule10);
             this.floorNo.TextChanged += new System.EventHandler(this.floorNo_TextChanged);
             // 
             // floor_no
@@ -238,6 +289,10 @@
             this.rooms.Name = "rooms";
             this.rooms.Size = new System.Drawing.Size(121, 20);
             this.rooms.TabIndex = 17;
+            validationRule11.ErrorMessage = "Field Invalid";
+            validationRule11.IsRequired = true;
+            validationRule11.RegExPattern = "^\\d*$";
+            this.validationProvider1.SetValidationRule(this.rooms, validationRule11);
             this.rooms.TextChanged += new System.EventHandler(this.rooms_TextChanged);
             // 
             // road
@@ -266,6 +321,10 @@
             this.parking.Name = "parking";
             this.parking.Size = new System.Drawing.Size(121, 20);
             this.parking.TabIndex = 22;
+            validationRule12.ErrorMessage = "Field Invalid";
+            validationRule12.IsRequired = true;
+            validationRule12.RegExPattern = "^\\d*$";
+            this.validationProvider1.SetValidationRule(this.parking, validationRule12);
             this.parking.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label10
@@ -343,6 +402,10 @@
             this.askPrice.Name = "askPrice";
             this.askPrice.Size = new System.Drawing.Size(121, 20);
             this.askPrice.TabIndex = 29;
+            validationRule13.ErrorMessage = "Field Invalid";
+            validationRule13.IsRequired = true;
+            validationRule13.RegExPattern = "^\\d*$";
+            this.validationProvider1.SetValidationRule(this.askPrice, validationRule13);
             this.askPrice.TextChanged += new System.EventHandler(this.askPrice_TextChanged);
             // 
             // availability
@@ -452,6 +515,11 @@
             this.Buy_Rent.Name = "Buy_Rent";
             this.Buy_Rent.Size = new System.Drawing.Size(121, 21);
             this.Buy_Rent.TabIndex = 39;
+            validationRule14.ErrorMessage = "Field Invalid";
+            validationRule14.IsRequired = true;
+            this.validationProvider2.SetValidationRule(this.Buy_Rent, validationRule14);
+            validationRule15.ErrorMessage = "Field Invalid";
+            this.validationProvider1.SetValidationRule(this.Buy_Rent, validationRule15);
             this.Buy_Rent.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // citiesLabel
@@ -489,6 +557,14 @@
             this.Buy_RentText.TabIndex = 42;
             this.Buy_RentText.Text = "Buy/Rent :";
             this.Buy_RentText.Click += new System.EventHandler(this.label9_Click_1);
+            // 
+            // validationProvider1
+            // 
+            this.validationProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("validationProvider1.Icon")));
+            // 
+            // validationProvider2
+            // 
+            this.validationProvider2.Icon = ((System.Drawing.Icon)(resources.GetObject("validationProvider2.Icon")));
             // 
             // Property_Enter
             // 
@@ -588,5 +664,7 @@
         private System.Windows.Forms.Label citiesLabel;
         private System.Windows.Forms.Label localityText;
         private System.Windows.Forms.Label Buy_RentText;
+        private Noogen.Validation.ValidationProvider validationProvider1;
+        private Noogen.Validation.ValidationProvider validationProvider2;
     }
 }

@@ -84,12 +84,26 @@ namespace BuyNSell
         {
 
         }
-
+        bool emailPresent()
+        {
+            con.Open();
+            string QRY = $"select * from [User] where Email='{textBox2.Text}'";
+            SqlDataReader dr = new SqlCommand(QRY,con).ExecuteReader();
+            bool isPresent = dr.HasRows;
+            dr.Close();
+            con.Close();
+            return isPresent;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             if (!validationProvider1.Validate())
             {
                 this.validationProvider1.ValidationMessages(!this.validationProvider1.Validate());
+                return;
+            }
+            if (emailPresent())
+            {
+                MessageBox.Show($"Email '{textBox2.Text}' is already registered!!");
                 return;
             }
             SqlCommand cmd = new SqlCommand("UserAdd_SP", con);
@@ -112,8 +126,11 @@ namespace BuyNSell
                 added = false;
             }
             con.Close();
-            if(added)
-                MessageBox.Show("Data added succesfully");
+            if (added)
+            {
+                MessageBox.Show("Your account was added!");
+                this.Close();
+            }
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

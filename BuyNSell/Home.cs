@@ -30,6 +30,8 @@ namespace BuyNSell
         private void button3_Click(object sender, EventArgs e)
         {
 
+            ContactUs obj = new ContactUs();
+            obj.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,7 +39,6 @@ namespace BuyNSell
             Register obj = new Register();
             obj.Show();
         }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 

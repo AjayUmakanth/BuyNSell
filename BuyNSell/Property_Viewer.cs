@@ -91,9 +91,21 @@ namespace BuyNSell
                 photo.Image = System.Drawing.Image.FromStream(mstream);
                 photo.SizeMode = PictureBoxSizeMode.StretchImage;
             }
-         
-           
+
+            dr.Close();
+            con.Close();
             
+        }
+
+        bool bidPresent()
+        {
+            con.Open();
+            string QRY = $"Select * from [Bids] where UID='{User_Details.UID}' and PID='{selectedPID}'";
+            SqlDataReader dr = new SqlCommand(QRY, con).ExecuteReader();
+            bool isPresent = dr.HasRows;
+            dr.Close();
+            con.Close();
+            return isPresent;
         }
         //this function is to resize image file
         public static Image resizeImage(Image imgToResize, Size size)
@@ -106,6 +118,11 @@ namespace BuyNSell
             {
                 if (MessageBox.Show($"Do you want to bid on this property ??", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
+                    if(bidPresent())
+                    {
+                        MessageBox.Show("You already have a bid laced on this property!!");
+                        return;
+                    }
                     Enter_Bid obj = new Enter_Bid();
                     obj.Show();
                     this.Hide();
