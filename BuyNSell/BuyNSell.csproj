@@ -55,7 +55,7 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Noogen.Validation">
-      <HintPath>..\..\..\..\..\..\..\ProgramData\DinkLabs.Noogen.Validation-master\demo\Noogen.Validation.dll</HintPath>
+      <HintPath>..\DinkLabs.Noogen.Validation-master\demo\Noogen.Validation.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
