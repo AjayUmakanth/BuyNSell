@@ -168,11 +168,11 @@ namespace BuyNSell
                 this.validationProvider1.ValidationMessages(!this.validationProvider1.Validate());
                 return;
             }
-            if (propPresent())
-            {
-                MessageBox.Show($"Property '{PName.Text}' is already registered!!");
-                return;
-            }
+          //  if (propPresent())
+          //  {
+          //      MessageBox.Show($"Property '{PName.Text}' is already registered!!");
+           //     return;
+          //  }
             byte[] imagePath = null;
             int available = (availability.Checked) ? 1 : 0;
             int gard = (garden.Checked) ? 1 : 0;

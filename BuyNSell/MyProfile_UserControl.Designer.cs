@@ -100,7 +100,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(158, 401);
+            this.label5.Location = new System.Drawing.Point(158, 382);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 25);
             this.label5.TabIndex = 4;
@@ -135,7 +135,7 @@
             this.address.AutoSize = true;
             this.address.BackColor = System.Drawing.Color.Transparent;
             this.address.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.address.Location = new System.Drawing.Point(278, 401);
+            this.address.Location = new System.Drawing.Point(278, 382);
             this.address.Name = "address";
             this.address.Size = new System.Drawing.Size(96, 25);
             this.address.TabIndex = 10;
