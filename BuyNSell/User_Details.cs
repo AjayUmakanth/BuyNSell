@@ -133,7 +133,7 @@ namespace BuyNSell
            
              
            
-            //lets check it first?
+            
         }
 
         private void button7_Click(object sender, EventArgs e)
