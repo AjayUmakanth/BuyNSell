@@ -52,6 +52,7 @@ namespace BuyNSell
             dr.Close();
             con.Close();
             label2.Text = $"Currently there are {num} properties available";
+            label2.Hide();
         }
         public void refreshDataGridView(string uid)
         {
