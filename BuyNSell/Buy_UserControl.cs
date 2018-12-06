@@ -32,9 +32,21 @@ namespace BuyNSell
             InitializeComponent();
             refreshDataGridView(User_Details.UID);
         }
-
+        public void availableProp(string uid)
+        {
+            String num ;
+            con.Open();
+            string syntax = $"SELECT count(PID) FROM [Property] WHERE Type='Buy' and UID not in ({uid})";
+            dr = new SqlCommand(syntax, con).ExecuteReader();
+            dr.Read();
+            num = dr[0].ToString();
+            dr.Close();
+            con.Close();
+            label2.Text = $"Currently there are {num} properties available";
+        }
         public void refreshDataGridView(string uid)
         {
+            availableProp(uid);
             con.Open();
             String syntax = $"SELECT PID,PropertyName,Address,City_Name,Locality_Name,AskPrice,Availablity FROM [Property] WHERE Type='Buy' and UID not in ({uid})";
             cmd = new SqlCommand(syntax, con);

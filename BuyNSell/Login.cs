@@ -15,8 +15,8 @@ namespace BuyNSell
     public partial class Login : Form
     {
         //public static String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"G:\\Matharishwa\\git repos\\BuyNSell\\BuyNSell\\Database3.mdf\Integrated Security=True";
-        public static String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\Database3.mdf\";Integrated Security=True";
-
+         public static String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"|DataDirectory|\\Database3.mdf\";Integrated Security=True";
+        //public static String connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\lenovo\\source\\repos\\AjayUmakanth\\BuyNSell\\BuyNSell\\Database3.mdf\";Integrated Security=True";
         SqlConnection con = new SqlConnection(connectionString);
         SqlCommand cmd;
         SqlDataReader dr;
